@@ -5,13 +5,14 @@
 # Markdown
 Вы тоже можете узнать про markdown из статей:
 ---
-*[из этой](https://ru.wikipedia.org/wiki/Markdown)
-*[или из этой](https://en.wikipedia.org/wiki/Markdown)
-*[или из вот этой](https://guides.github.com/features/mastering-markdown/)
+* [из этой](https://ru.wikipedia.org/wiki/Markdown)
+* [или из этой](https://en.wikipedia.org/wiki/Markdown)
+* [или из вот этой](https://guides.github.com/features/mastering-markdown/)
 
 # Markdown в деталях (заголовок, далее таблица)
 
 |Filename extensions            |          .md, .markdown[1][2]|
+|-------------------------------|------------------------------|
 |Internet media type            |           text/markdown[2]|
 |Uniform Type Identifier (UTI)  |   net.daringfireball.markdown|
 |Developed by                   |                John Gruber|
