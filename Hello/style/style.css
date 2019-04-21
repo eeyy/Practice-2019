@@ -1,0 +1,124 @@
+@font-face{
+    font-family: Lato;
+    src: url(fonts/Lato/Lato-Light.ttf);
+    
+}
+@font-face{
+    font-family: "Signika";
+    src: url("fonts/Signika_Negative/SignikaNegative-Regular.ttf");
+
+}
+body{
+    
+    background-color:#EAEDF1;
+    
+}
+p{
+    font-family: "Lato";
+    color: #33495F;
+
+}
+h1{
+    font-family: "Signika";
+    font-size: 27px;
+    color: #33495F;
+}
+
+.account{
+    float: left;
+    background-color: white;
+    margin: 0 auto;
+    width: 395px;
+    height: 270px;
+}
+.imgAndFullN{
+    height: 190px;
+}
+.accountImg{
+    margin: 24px 15px;
+    background: url("/style/image/attributes/ava.png") no-repeat white 50% 50%;
+    background-size: 134px;
+    width: 147px;
+    height: 147px;
+    float: left;
+}
+.account h1{
+    width: 180px;
+    float: left;
+    margin-left: 18px;
+    margin-top: 70px;
+}
+.account p{
+    float: left;
+    margin-left: 17px;
+    margin-top: -15px;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.fastData{
+    float: left;
+    margin-top: 51px;
+}
+
+a{
+    text-decoration: none;
+}
+.ans{
+    background: url("/style/image/attributes/checked.png") no-repeat #16C4EC 50% 30%;
+    padding: 50px 34px 5px;
+    color: white;
+}
+.country{
+    background: url("/style/image/attributes/country.png") no-repeat #FA5351 50% 30%;
+    margin-left: -5px;
+    padding: 50px 5px 5px;  
+    color: white;
+}
+.permis{
+    background: url("/style/image/attributes/drivingCategory.png") no-repeat #10CDC1 50% 30%;
+    margin-left: -5px;
+    padding: 50px 12px 5px;  
+    color: white;
+}
+.smoke{
+    background: url("/style/image/attributes/smoke.png") no-repeat #33495F 50% 30%;
+    margin-left: -5px;
+    padding: 50px 33px 5px;  
+    color: white;
+}
+/*Аккаунт описан сверху*/
+
+.aboutMe{
+    float: left;
+    margin-left: 30px;
+    background-color: white;
+    width: 450px;
+    height: 250px;
+}
+.descriptionContacts{
+    width: 500px;
+}
+.aboutMe h1, .aboutMe p{
+    float: left;
+    width: 260px;
+}
+.contacts{
+    float: right;
+}
+
+.tw{
+    background: url("/style/image/social/tw.png") no-repeat white 50% 50%;
+}
+
+
+
+
+
+#header{
+
+    display: inline-block;  
+    padding: 67px 66px; 
+}
