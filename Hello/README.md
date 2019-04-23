@@ -9,7 +9,7 @@
 * [или из этой](https://en.wikipedia.org/wiki/Markdown)
 * [или из вот этой](https://guides.github.com/features/mastering-markdown/)
 
-# Markdown в деталях (заголовок, далее таблица)
+# Markdown в деталях
 
 |Filename extensions | .md, .markdown[1][2]|
 |:------------------------------|:-----------------------------|
