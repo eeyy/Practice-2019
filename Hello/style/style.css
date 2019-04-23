@@ -1,26 +1,54 @@
 @font-face{
-    font-family: Lato;
+    font-family: Lato-Light;
     src: url(fonts/Lato/Lato-Light.ttf);
-    
 }
 @font-face{
-    font-family: "Signika";
-    src: url("fonts/Signika_Negative/SignikaNegative-Regular.ttf");
-
+    font-family: Lato-Bold;
+    src: url(fonts/Lato/Lato-Bold.ttf); 
 }
+@font-face{
+    font-family: Lato-Hairline;
+    src: url(fonts/Lato/Lato-Hairline.ttf); 
+}
+@font-face{
+    font-family: Lato-Regular;
+    src: url(fonts/Lato/Lato-Regular.ttf); 
+}
+
+
+@font-face{
+    font-family: "Signika-Regular";
+    src: url("fonts/Signika/Signika-Regular.ttf");
+}
+@font-face{
+    font-family: "Signika-Light";
+    src: url("fonts/Signika_Negative/SignikaNegative-Light.ttf");
+}
+
+@font-face{
+    font-family: "Signika-Bold";
+    src: url("fonts/Signika/Signika-Bold.ttf");
+}
+@font-face{
+    font-family: "Signika-SemiBold";
+    src: url("fonts/Signika/Signika-SemiBold.ttf");
+}
+
+
 body{
     
     background-color:#EAEDF1;
     
 }
 p{
-    font-family: "Lato";
+    font-family: "Lato-Regular";
     color: #33495F;
 
+    font-size: 17.7px;
 }
 h1{
-    font-family: "Signika";
-    font-size: 27px;
+    font-family: "Signika-Regular";
+    font-size: 28.35px;
     color: #33495F;
 }
 
@@ -28,30 +56,31 @@ h1{
     float: left;
     background-color: white;
     margin: 0 auto;
-    width: 395px;
+    width: 435px;
     height: 270px;
+    /*! border: 3px solid white; */
+    /*! border-radius: 1px; */
 }
 .imgAndFullN{
     height: 190px;
 }
 .accountImg{
-    margin: 24px 15px;
-    background: url("/style/image/attributes/ava.png") no-repeat white 50% 50%;
-    background-size: 134px;
+    margin: 35px 26px 28px;
+    background: url("image/head/attributes/ava.png") no-repeat white 50% 50%;
     width: 147px;
     height: 147px;
     float: left;
 }
 .account h1{
-    width: 180px;
+    width: 200px;
     float: left;
-    margin-left: 18px;
-    margin-top: 70px;
+    margin-left: 16px;
+    margin-top: 77px;
 }
 .account p{
     float: left;
-    margin-left: 17px;
-    margin-top: -15px;
+    margin-left: 16px;
+    margin-top: -16px;
 }
 .clearfix::after {
     content: "";
@@ -60,65 +89,287 @@ h1{
   }
 .fastData{
     float: left;
-    margin-top: 51px;
+    margin-top: 49px;
+    /*! width: 450px; */
 }
 
 a{
     text-decoration: none;
+    font-family: Lato-Regular;
+    font-size: 14.53px;
+}
+.share{
+    /*font-family: "Signika-Light";*/
 }
 .ans{
-    background: url("/style/image/attributes/checked.png") no-repeat #16C4EC 50% 30%;
-    padding: 50px 34px 5px;
+    background: url("image/head/attributes/checked.png") no-repeat #16C4EC 50.5% 32.7%;
+    padding: 43px 31.5px 18px;
     color: white;
+    
+    
 }
 .country{
-    background: url("/style/image/attributes/country.png") no-repeat #FA5351 50% 30%;
+    background: url("image/head/attributes/country.png") no-repeat #FA5351 50% 30%;
     margin-left: -5px;
-    padding: 50px 5px 5px;  
+    padding: 43px 12.0px 18px;
     color: white;
 }
 .permis{
-    background: url("/style/image/attributes/drivingCategory.png") no-repeat #10CDC1 50% 30%;
-    margin-left: -5px;
-    padding: 50px 12px 5px;  
+    background: url("image/head/attributes/drivingCategory.png") no-repeat #10CDC1 49.4% 32.9%;
+    margin-left: -3.7px;
+    padding: 43px 23.50px 18px 22px;
     color: white;
 }
 .smoke{
-    background: url("/style/image/attributes/smoke.png") no-repeat #33495F 50% 30%;
-    margin-left: -5px;
-    padding: 50px 33px 5px;  
+    background: url("image/head/attributes/smoke.png") no-repeat #33495F 50% 29%;
+    margin-left: -8.9px;
+    padding: 43px 35.6px 18px 38.6px;
     color: white;
 }
 /*Аккаунт описан сверху*/
 
 .aboutMe{
     float: left;
-    margin-left: 30px;
+    margin-left: 90px;
     background-color: white;
-    width: 450px;
-    height: 250px;
+    width: 820px;
+    height: 295px;
 }
 .descriptionContacts{
     width: 500px;
 }
-.aboutMe h1, .aboutMe p{
+.aboutMe h1{
     float: left;
-    width: 260px;
+    width: 500px;
+    padding: 45px 28px 0px;
+    font-size: 36px;
+    margin: 0px;
 }
+.descriptionContacts a{
+    color: #16c4ec;
+}
+.descriptionContacts p{
+    float: left;
+    width: 430px;
+    padding: 0px 30.5px;
+    
+    margin-top: 10.0px;
+    line-height: 1.70;
+    word-spacing: 5px;
+    font-size: 17.50px;
+    /*! font-family: "Lato-Light"; */
+}
+
 .contacts{
+    width: 320px;
     float: right;
 }
 
-.tw{
-    background: url("/style/image/social/tw.png") no-repeat white 50% 50%;
+.contacts p{
+    font-size: 22.50px;
+    margin: 0px;
+    padding: 16.90px 9px;
+    font-family: Signika-Regular;
+}
+.contacts a{
+    font-size: 22.50px;
+    margin-top: 0px;
+    padding: 16.90px 11px;
+    font-family: Signika-Regular;
+    color: #fa5351;
+    letter-spacing: 2.0px;
+}
+.contacts hr{
+    margin-top: 31px;
+    width: 270px;
+    margin-left: 12.5px;
 }
 
-
-
+.social{
+    float: left;
+    width: 550px;
+    height: 60px;
+}
+.part{
+    width: 30px;
+    height: 30px;
+    padding-left: 75px;
+    padding-bottom: 20px;
+}
+.tw{
+    background: url("image/head/social/tw.png") no-repeat white 50% 60%;
+}
+.ball{
+    background: url("image/head/social/ball.png") no-repeat white 45% 60%;
+}
+.be{
+    background: url("image/head/social/be.png") no-repeat white 48% 60%;
+}
+.inst{
+    background: url("image/head/social/inst.png") no-repeat white 49% 60%;
+}
+.apricot{
+    background: url("image/head/social/apricot.png") no-repeat white 48% 60%;
+}
+.in{
+    background: url("image/head/social/in.png") no-repeat white 40% 60%;
+}
 
 
 #header{
 
     display: inline-block;  
-    padding: 67px 66px; 
+    padding: 74px 72px 0px; 
 }
+
+/*Далее middle*/
+
+ul{
+    list-style: none;
+}
+
+.middle{
+    padding: 15px 72px; 
+}
+.workHistory{
+    width: 635px;
+   
+    margin-top: 16px;
+}
+
+.secretVelvet{
+    background-color: white;
+    height: 340px
+}
+.workName{
+    float: left;
+    width: 635px;
+    height: 100px;
+}
+.workName h1{
+    float: left;
+    font-family: "Signika-Light";
+    font-size: 23px;
+    margin: 0px;
+    padding: 31.5px 0px 0px 23px;
+}
+.workName p{
+    float: left;
+    width: 400px;
+    padding: 20px 12px 0px;
+    color: #9ea7b4;
+    margin-bottom: 2px;
+}
+.workName h2{
+    float: left;
+    margin: 0px;
+    padding: 3px 23px;
+    color: #04bca6;
+    font-family: "Signika-Light";
+    font-size: 20px;
+    letter-spacing: -0.4px;
+}
+
+.listSV{
+    color: #33495f;
+    float: left;
+    margin: 0px;
+    padding: 2px 0px;
+    line-height: 2;
+    font-size: 16.1px;
+    letter-spacing: 0.3px;
+}
+.listSV ul{
+    padding: 
+13px 0px 0px 30px; 
+    margin: 0px 0px;
+}
+
+
+.listSV span{
+    font-family: "Lato-Regular";
+    
+    padding-left: 4px;
+}
+
+.bottomCard{
+    
+    float: left;
+    padding: 30px 10px 10px 30px;
+}
+.bottomCard p{
+    float: left;
+    padding: 12px 22px 12px 9px;
+    margin: 0px;
+    
+    color: #9ea7b4;
+    font-size: 15px;
+}
+.bottomCard img+p+img{
+    margin: 1px 0px 0px 35.0px;
+}
+
+.bottomCard img{
+    float: left;
+    padding-top: 15px;
+}
+.bottomCard input{
+    
+    float: left;
+    padding: 9.4px 28px 6px 31px;
+    margin-left: 61px;
+    color: white;
+    border: 1px solid #16c4ec;
+    border-radius: 3px;
+    background-color: #16c4ec;
+    margin-top: 3px;
+    font-size: 16.4px;
+    font-family: "Signika-Regular";
+}
+
+/*cortix*/
+
+.cortix{
+    padding-top: -30px;
+    background-color: white;
+    height: 320px;
+    margin-top: 36px;
+}
+.cortix .workName{
+    
+    height: 80px;
+}
+.cortix .workName h1{
+    padding-top: 28px
+}
+.cortix .workName p{
+        margin-top: 0px;
+        padding-top: 33px;
+        padding-left: 14px;
+        margin-bottom: 3px;
+}
+.cortix h2{
+    
+    padding-top: 2px;
+}
+.cortix .bottomCard p + img{
+    margin-left: 30px;
+    margin-right: 7px;
+}
+.cortix .bottomCard input{
+    
+    margin-left: 69.5px;
+    padding: 9px 62px 6px 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
