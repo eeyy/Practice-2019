@@ -233,12 +233,16 @@ ul{
 }
 .workHistory{
     width: 635px;
-   
-    margin-top: 16px;
+    margin-top: 18px;
+    float: left;
+}
+.workHistframeParam{
+    background-color: white;
+    border: 0.0001px solid white;
+    border-radius: 2px;
 }
 
 .secretVelvet{
-    background-color: white;
     height: 340px
 }
 .workName{
@@ -295,7 +299,7 @@ ul{
 .bottomCard{
     
     float: left;
-    padding: 30px 10px 10px 30px;
+    padding: 27px 10px 10px 30px;
 }
 .bottomCard p{
     float: left;
@@ -316,8 +320,8 @@ ul{
 .bottomCard input{
     
     float: left;
-    padding: 9.4px 28px 6px 31px;
-    margin-left: 61px;
+    padding: 7.40px 26px 8px 28px;
+    margin-left: 59px;
     color: white;
     border: 1px solid #16c4ec;
     border-radius: 3px;
@@ -325,15 +329,15 @@ ul{
     margin-top: 3px;
     font-size: 16.4px;
     font-family: "Signika-Regular";
+    letter-spacing: 0.3px;
 }
 
 /*cortix*/
 
 .cortix{
     padding-top: -30px;
-    background-color: white;
     height: 320px;
-    margin-top: 36px;
+    margin-top: 35.5px;
 }
 .cortix .workName{
     
@@ -358,11 +362,161 @@ ul{
 }
 .cortix .bottomCard input{
     
-    margin-left: 69.5px;
-    padding: 9px 62px 6px 60px;
+    margin-left: 70.5px;
+    padding: 9px 58.5px 7px 58.0px;
 }
 
+/*Далее Ademe's код*/
 
+.ademe{
+    height: 169.5px;
+    margin-top: 33px;
+}
+.ademe .workName h1{
+    
+    font-size: 24.0px;
+    padding-top: 30px;
+    padding-left: 23.5px;
+}
+.ademe .workName p{
+    
+    width: 460px;
+    padding: 18px 7px 1.3px;
+}
+.ademe .workName h2{
+    
+    padding-top: 2px;
+}
+.ademe .bottomCard{
+    
+    padding: 9px 10px 10px 30px;
+}
+.ademe .bottomCard input{
+    
+    margin-left: 54px;
+    padding: 9px 54px 7px 58px;
+    font-size: 16.4px;
+    letter-spacing: 0.3px;
+    margin-top: 1px;
+    background: #b0bbca;
+    border-color: #b0bbca;
+}
+
+/*Далее Impec's код*/
+
+.impecToonga{
+    margin-top: 33.5px;
+    height: 167.5px;
+}
+.impecToonga .workName h1{
+    
+    padding: 28.0px 0px 0px 24.0px;
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+.impecToonga .workName p{
+    
+    padding: 17px 9px 0px;
+    margin-bottom: 3px;
+}
+.impecToonga .workName h2{
+    
+    padding: 1.5px 23px; 
+}
+.impecToonga .bottomCard{
+    
+    padding: 6px 10px 10px 30px;
+}
+.impecToonga .bottomCard img + p + img{
+    
+    margin-left: 58px;
+}
+.impecToonga .bottomCard input{
+    margin-left: 37px;
+    padding: 9px 44px 7px 46px;
+    font-size: 16.4px;
+    letter-spacing: 0.43px;
+    margin-top: 1px;
+    background: #b0bbca;
+    border-color: #b0bbca;
+}
+
+/*Далее вставка TimeScale*/
+
+.timeScale{
+    float: left;
+    padding-top: 17px;
+    padding-left: 1px;
+}
+
+/*Далее myAchievement's код*/
+
+.myAchievement{
+    
+    float: left;
+    width: 625px;
+    margin-top: 16px;
+    margin-left: 10px;
+}
+.myAchievframeParam{
+    background-color: #dbe1e8;
+    border: 0.001px solid #dbe1e8;
+    border-radius: 3px;
+}
+.myAchievframeParam .workName p{
+    color: #7a8698;
+}
+.myAchievframeParam .bottomCard p{
+    color: #33495f;
+    font-size: 12.5px;
+}
+.myAchievframeParam input{
+    background-color: #10cdc1;
+}
+
+/*Далее yelp's код*/
+
+.yelp{
+    
+    height: 172px;
+}
+.yelp .workName h1{
+    
+    padding: 31px 0px 0px 22px;
+    letter-spacing: -1px;
+}
+.yelp .workName p{
+    
+    padding: 22px 0px 0px 13px;
+    font-size: 15px;
+    letter-spacing: 0.1px;
+    margin-bottom: 5px;
+}
+.yelp .workName h2{
+    padding: 2px 22px;
+    
+    color: #00b9d8;
+    font-size: 17px;
+    letter-spacing: -0.5px;
+}
+.yelp .bottomCard{
+    
+    padding: 8px 24px;
+} 
+.yelp .bottomCard p{
+    padding: 15px 32px 0px 8px;
+}
+.yelp .bottomCard img + p + img {
+    
+    margin: 2px 0px 0px 35px;
+}
+.yelp .bottomCard input{
+    
+    margin-left: 55px;
+    padding: 7px 70px 9px 65px;
+    margin-top: 4px;
+    letter-spacing: -0.1px;
+}
 
 
 
