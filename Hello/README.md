@@ -1,10 +1,10 @@
 # Practice-2019
 Я узнал про markdown.
-—-
+---
 
 # Markdown
 Вы тоже можете узнать про markdown из статей:
-—-
+---
 * [из этой](https://ru.wikipedia.org/wiki/Markdown)
 * [или из этой](https://en.wikipedia.org/wiki/Markdown)
 * [или из вот этой](https://guides.github.com/features/mastering-markdown/)
