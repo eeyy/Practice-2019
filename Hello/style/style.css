@@ -14,6 +14,11 @@
     font-family: Lato-Regular;
     src: url(fonts/Lato/Lato-Regular.ttf); 
 }
+@font-face{
+    font-family: Lato-Italic;
+    src: url(fonts/Lato/Lato-Italic.ttf); 
+}
+
 
 
 @font-face{
@@ -463,8 +468,11 @@ ul{
     border: 0.001px solid #dbe1e8;
     border-radius: 3px;
 }
+/*Описание общих параметров*/
 .myAchievframeParam .workName p{
     color: #7a8698;
+    font-size: 15px;
+    width: 500px;
 }
 .myAchievframeParam .bottomCard p{
     color: #33495f;
@@ -473,6 +481,10 @@ ul{
 .myAchievframeParam input{
     background-color: #10cdc1;
 }
+.myAchievframeParam .bottomCard{
+    padding: 8px 24px;
+}
+
 
 /*Далее yelp's код*/
 
@@ -488,7 +500,6 @@ ul{
 .yelp .workName p{
     
     padding: 22px 0px 0px 13px;
-    font-size: 15px;
     letter-spacing: 0.1px;
     margin-bottom: 5px;
 }
@@ -499,10 +510,6 @@ ul{
     font-size: 17px;
     letter-spacing: -0.5px;
 }
-.yelp .bottomCard{
-    
-    padding: 8px 24px;
-} 
 .yelp .bottomCard p{
     padding: 15px 32px 0px 8px;
 }
@@ -517,13 +524,270 @@ ul{
     margin-top: 4px;
     letter-spacing: -0.1px;
 }
+/*Далее QoQa's код*/
+.qoqa {
+    height: 170px;
+    margin-top: 32px;
+}
+.qoqa .workName h1{
+    padding: 30.5px 0px 0px 22px;
+    letter-spacing: -0.7px;
+}
+.qoqa .workName p{
+    padding: 21px 10px 0px;
+    letter-spacing: 0.15px;
+    margin-bottom: 6px;
+}
+.qoqa .workName h2{
+    padding: 0px 22px 0px;
+    font-size: 17px;
+    color: #00b9d8;
+}
+.qoqa .bottomCard p{
+    padding: 16px 9px;
+}
+.qoqa .bottomCard img + p + img {
+    margin: 2px 0px 0px 58px;
+}
+.qoqa .bottomCard input {
+    
+    padding: 7.40px 66px 9px 63px;
+    margin-left: 69px;
+    letter-spacing: -0.05px;
+}
+
+/*Далее hr's код*/
+
+.hr{
+    
+    margin-top: 23px;
+}
+
+/*Далее cefire's код*/
+
+.cefire {
+    
+    height: 128px;
+    margin-top: 28px;
+}
+.cefire .workName h1{
+    padding: 29.0px 0px 0px 23px;
+    letter-spacing: -1.1px;
+}
+.cefire .workName p{
+    padding: 22px 11px 0px;
+    width: 340px;
+    letter-spacing: 0.13px;
+    margin-bottom: 3px;
+}
+.cefire .workName h2{
+    padding: 2px 22px 0px;
+    font-size: 18px;
+    letter-spacing: -0.91px;
+}
+.cefire .workName{
+    height: 75.5px
+} 
+.cefire .bottomCard p{
+    
+    margin-top: 4px;
+}
+.cefire .bottomCard img + p + img{
+    
+    margin: 2px 0px 0px 46px;
+}
+.cefire .bottomCard p + img + p + img{
+    
+    margin: 1px 0px 0px 189.5px;
+}
+    /*Далее ecole's код*/
+.ecole {
+    margin-top: 32px;
+    height: 130px;
+}
+
+.ecole .workName h1{
+    
+    padding: 29.5px 0px 0px 23.5px;
+    letter-spacing: -1.165px;
+}    
+
+.ecole .workName p{
+    
+    width: auto;
+    letter-spacing: 0.06px;
+}    
+  
+.ecole .workName h2{
+    padding: 3px 22px;
+    font-size: 17px;
+    letter-spacing: -0.535px;
+}      
+.ecole .workName{
+    height: 73px 
+}   
+.ecole .bottomCard p{
+    
+    padding: 16px 22px 12px 9px;
+    letter-spacing: -0.23px;
+}
+.ecole .bottomCard img + p + img {
+    margin-left: 28px;
+    margin-top: 2px;
+}    
+.ecole .bottomCard p + img + p + img {
+    
+    margin-left: 190px;
+    margin-top: 1px;
+}
+
+/*Далее myHobbyAndAbilitys's код*/
+
+.myHobbyAndAbilitys{
+    
+    height: 401px;
+    background: white;
+    margin-top: 34px;
+}
+
+/*Далее hobby's код*/    
+    
+.hobby{
+    float: left;
+}
+.hobby p{
+    font-size: 12.4px;
+    margin-top: 6px;
+}
+.commonSize{
+    width: 84.5px;
+    padding: 16px 0 0 18px;
+    float: left;
+}
+.hobby1 p{
+    margin-left: 1.5px;
+    letter-spacing: 0.2px;
+}
+.hobby2 p{
+   
+    margin-left: 9.5px;
+    letter-spacing: 0.4px;
+}
+.hobby3 p{
+   
+    margin-left: 2.4px;
+    letter-spacing: 0.9px;
+}
+.hobby4 p{
+   
+    margin-left: 0px;
+    letter-spacing: 0.4px;
+}
+.hobby5 p{
+    
+    letter-spacing: 0.4px;
+}
+.hobby6 p{
+    
+    margin-left: 1.4px;
+    letter-spacing: 0.9px;
+}
+
+/*Далее ability's код*/
+
+.ability{
+    float: left;
+    width: 627px;
+    height: 270px;
+    margin-top: 20px;
+}
+
+/*Далее ProgresBars's код*/
+    
+.leftProgresBars{
+    float: left;
+    width: auto;
+    height: auto;
+}    
+.rightProgresBars{
+    float: right;
+}   
+    
+    
+progress{
+    background-color: #dbe1e8;
+    border: 0;
+    height: 14px;
+    border-radius: 6px;
+    width: 270px;
+}    
+progress::-webkit-progress-bar {
+    background-color: #10cdc1;
+    border: 0;
+    height: 14px;
+    border-radius: 6px 0 0 6px;
+}  
+progress::-webkit-progress-value {
+    background-color: #10cdc1;
+    border: 0;
+    height: 14px;
+    border-radius: 6px 0 0 6px;
+}  
+progress::-moz-progress-bar {
+    background-color: #10cdc1;
+    border: 0;
+    height: 14px;
+    border-radius: 6px 0 0 6px;
+}  
+
+
+.rightProgresBars progress::-webkit-progress-bar {
+    background-color: #10cdc1;
+    border: 0;
+    height: 14px;
+    border-radius: 6px 0 0 6px;
+}  
+.rightProgresBars progress::-webkit-progress-value {
+    background-color: #10cdc1;
+    border: 0;
+    height: 14px;
+    border-radius: 6px 0 0 6px;
+}  
+.rightProgresBars progress::-moz-progress-bar {
+    background-color: #16c4ec;
+    border: 0;
+    height: 14px;
+    border-radius: 6px 0 0 6px;
+}  
+
+.commonAttribute{
+    width: auto;
+    height: 40px;
+    margin: 11px 16px 15px 20px;
+}
+.ability p{
+    margin: 0 0 0 0;
+    font-size: 16px;
+}
+/*Далее footer's код*/
+#footer{
+    margin: 21px 450px;
+}
+#footer img{
+    float: left;
+}
+
+#footer p{
+    font-family: "Lato-Italic";
+    color: #34495e;
+    float: left;
+    margin: 5px 19px 0 21.5px;
+    font-size: 18px;
+    letter-spacing: 0.56px;
+}
 
 
 
 
 
-
-
-
-
-
+   
