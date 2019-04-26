@@ -68,7 +68,7 @@ var lastFire = Date.now();
 var gameTime = 0;
 var isGameOver;
 var terrainPattern;
-countMegaliths = randomInteger(4, 8);
+var countMegaliths = randomInteger(4, 8);
    
 
 var score = 0;
@@ -124,7 +124,7 @@ function update(dt) {
     }
 	
     checkCollisions();
-
+    
     scoreEl.innerHTML = score;
 };
 
@@ -239,6 +239,10 @@ function boxCollides(pos, size, pos2, size2) {
 function checkCollisions() {
     checkPlayerBounds();
     
+    checkPlayerMegaliths();
+    checkEnemiesMegaliths();
+    checkBulletsMegaliths();
+
     // Run collision detection for all enemies and bullets
     for(var i=0; i<enemies.length; i++) {
         var pos = enemies[i].pos;
@@ -277,8 +281,69 @@ function checkCollisions() {
         if(boxCollides(pos, size, player.pos, player.sprite.size)) {
             gameOver();
         }
+
     }
 }
+
+function checkPlayerMegaliths(){
+    for(var i=0; i<megaliths.length; i++) {
+        var posMeg = megaliths[i].pos;
+        var sizeMeg = megaliths[i].sprite.size;
+        
+        if(boxCollides(posMeg, sizeMeg, player.pos, player.sprite.size)) {
+            if(player.pos[0] < posMeg[0]){
+            player.pos[0] = player.pos[0] - 8;
+            }
+            if(player.pos[1] < posMeg[1]){
+            player.pos[1] = player.pos[1] - 8;
+            }
+            if(player.pos[0] > posMeg[0]){
+                player.pos[0] = player.pos[0] + 8;
+            }
+            if(player.pos[1] > posMeg[1]){
+                player.pos[1] = player.pos[1] + 8;
+            }
+        }
+    }
+}
+function checkEnemiesMegaliths(){
+    for(var i=0; i<megaliths.length; i++) {
+        var posMeg = megaliths[i].pos;
+        var sizeMeg = megaliths[i].sprite.size;
+
+        for(var j=0; j<enemies.length; j++) {
+            var pos = enemies[j].pos;
+            var size = enemies[j].sprite.size;
+            if(boxCollides(posMeg, sizeMeg, pos, size)) {
+                if(pos[1] < posMeg[1]){
+                pos[1] = pos[1] - 8;
+                }
+                if(pos[0] > posMeg[0]){
+                    pos[0] = pos[0] + 8;
+                }
+                if(pos[1] > posMeg[1]){
+                    pos[1] = pos[1] + 8;
+                }
+            }
+        }
+    }
+}
+
+function checkBulletsMegaliths(){
+    for(var i=0; i<megaliths.length; i++) {
+        var posMeg = megaliths[i].pos;
+        var sizeMeg = megaliths[i].sprite.size;
+
+        for(var j=0; j<bullets.length; j++) {
+            var pos = bullets[j].pos;
+            var size = bullets[j].sprite.size;
+            if(boxCollides(posMeg, sizeMeg, pos, size)) {
+                bullets.splice(j, 1);
+            }
+        }
+    }
+}
+
 
 function checkPlayerBounds() {
     // Check bounds
@@ -295,6 +360,7 @@ function checkPlayerBounds() {
     else if(player.pos[1] > canvas.height - player.sprite.size[1]) {
         player.pos[1] = canvas.height - player.sprite.size[1];
     }
+    //тут
 }
 
 // Draw everything
@@ -340,9 +406,11 @@ function reset() {
     isGameOver = false;
     gameTime = 0;
     score = 0;
+    countMegaliths = randomInteger(4, 8);
 
     enemies = [];
     bullets = [];
-
+    megaliths = [];
+    
     player.pos = [50, canvas.height / 2];
 };
