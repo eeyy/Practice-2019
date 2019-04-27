@@ -27,6 +27,34 @@ canvas {
     color: #757575;
 }
 
+#mannaText {
+    float: right;
+    color: white;
+    font-size: 1.3em;
+    margin-right: 15px;
+}
+#mannaText p{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+#manna {
+    float: right;
+    color: white;
+    font-size: 2em;
+    margin-right: 25px;
+}
+
+#scoreText {
+    float: right;
+    color: white;
+    font-size: 1.3em;
+    margin-right: 15px;
+}
+#scoreText p{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
 #score {
     float: right;
     color: white;
