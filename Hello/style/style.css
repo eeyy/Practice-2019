@@ -94,7 +94,7 @@ h1{
   }
 .fastData{
     float: left;
-    margin-top: 49px;
+    margin-top: 0px;
     /*! width: 450px; */
 }
 
@@ -105,10 +105,11 @@ a{
 }
 .share{
     /*font-family: "Signika-Light";*/
+    float: left;
 }
 .ans{
     background: url("image/head/attributes/checked.png") no-repeat #16C4EC 50.5% 32.7%;
-    padding: 43px 31.5px 18px;
+    padding: 43px 33.5px 18px;
     color: white;
     
     
@@ -116,19 +117,19 @@ a{
 .country{
     background: url("image/head/attributes/country.png") no-repeat #FA5351 50% 30%;
     margin-left: -5px;
-    padding: 43px 12.0px 18px;
+    padding: 43px 14.0px 18px;
     color: white;
 }
 .permis{
     background: url("image/head/attributes/drivingCategory.png") no-repeat #10CDC1 49.4% 32.9%;
     margin-left: -3.7px;
-    padding: 43px 23.50px 18px 22px;
+    padding: 43px 27.50px 18px 25px;
     color: white;
 }
 .smoke{
     background: url("image/head/attributes/smoke.png") no-repeat #33495F 50% 29%;
     margin-left: -8.9px;
-    padding: 43px 35.6px 18px 38.6px;
+    padding: 43px 37.6px 18px 41.6px;
     color: white;
 }
 /*Аккаунт описан сверху*/
