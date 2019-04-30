@@ -72,7 +72,7 @@ var terrainPattern;
 var countMegaliths = randomInteger(4, 8);
 var countManna = randomInteger(4, 12);
 var checkedManna = [];
-var backManna = true;
+var posNewManna = [];
 
 var score = 0;
 var scoreManna = 0;
@@ -132,28 +132,12 @@ function update(dt) {
     }
     
     checkCollisions();
-    
+    updateManna();
     scoreEl.innerHTML = score;
     scoreMa.innerHTML = scoreManna;
 };
 
 function updateManna(){
-    
-    if(manna.length < countManna) {
-        manna.push({
-            pos: [Math.random() * (canvas.width - 57),
-                Math.random() * (canvas.height - 39)],
-            sprite: new Sprite('img/sprites.png', [0, 164], [57, 39], 3, [0, 1])
-        });
-    }
-};
-/*
-    for(var i=0; i<manna.length; i++) {
-        var posManna = manna[i].pos;
-        var sizeManna = manna[i].sprite.size;
-
-        arrManna.push({pos: posManna, size: sizeManna});
-    }
     
     if(manna.length == 0){
         manna.push({
@@ -165,32 +149,73 @@ function updateManna(){
     else{
         if(manna.length < countManna) {
             manna.push({
-                pos: checkNewManna(),
+                pos: createPosNewManna(),
                 sprite: new Sprite('img/sprites.png', [0, 164], [57, 39], 3, [0, 1])
             });
         }
     }
 };
 
-function checkNewManna(){
+function createPosNewManna(){
     while( true ){
         var x = Math.random() * (canvas.width - 57);
         var y = Math.random() * (canvas.height - 39);
-        var posNewManna = {x, y};
+        var posNewManna = [x, y];
         var xSize = x + 57;
         var ySize = y + 39;
-        var sizeNewManna = {xSize, ySize};
+        var sizeNewManna = [xSize, ySize];
         
-        for(var i=0; i<arrManna.length; i++){
-            var poss = arrManna[i].pos;
-            var sizee = arrManna[i].size;
-            if (!boxCollides(posNewManna, sizeNewManna, poss, sizee)){
-                return posNewManna;
+        if(checkPosNewManna(posNewManna, sizeNewManna, manna) & checkPosNewManna(posNewManna, sizeNewManna, megaliths)){
+            return posNewManna;
+        }
+
+/*
+        for(var i=0; i<manna.length; i++){
+            var pos = manna[i].pos;
+            var size = manna[i].sprite.size;
+            if (boxCollides(posNewManna, sizeNewManna, pos, size)){
+                break;
+            }
+            else{
+                if (i == manna.length - 1){
+                n++;
+                }
+            }
+        }
+
+        for(var i=0; i<megaliths.length; i++){
+            var pos = megaliths[i].pos;
+            var size = megaliths[i].sprite.size;
+            if (boxCollides(posNewManna, sizeNewManna, pos, size)){
+                break;
+            }
+            else{
+                if (i == megaliths.length - 1){
+                    n++;
+                }
+            }
+        }
+        if (n == 2){
+            return posNewManna;
+        }*/
+    }
+}
+
+function checkPosNewManna(posNewManna, sizeNewManna, arr){
+    for(var i=0; i<arr.length; i++){
+        var pos = arr[i].pos;
+        var size = arr[i].sprite.size;
+        if (boxCollides(posNewManna, sizeNewManna, pos, size)){
+            break;
+        }
+        else{
+            if (i == arr.length - 1){
+                return true;
             }
         }
     }
+    return false;
 }
-*/
 
 
 function handleInput(dt) {
@@ -285,7 +310,7 @@ function updateEntities(dt) {
     for(var i=0; i<manna.length; i++) {
         manna[i].sprite.update(dt);
 
-        // Remove if animation is done,  скорее всего нафиг
+        // Remove if animation is done
         if(manna[i].sprite.done) {
             manna.splice(i, 1);
             i--;
@@ -416,29 +441,38 @@ function checkBulletsMegaliths(){
     }
 }
 
+var a = 0;
+var b = 0;
 function checkPlayerManna(){
+    
     for(var i=0; i<manna.length; i++) {
         var posManna = manna[i].pos;
         var sizeManna = manna[i].sprite.size;
         
-            if(boxCollides(posManna, sizeManna, player.pos, player.sprite.size) & (checkedManna[0] != posManna[0])) {
 
-                checkedManna[0] = posManna[0];
+            if(boxCollides(posManna, sizeManna, player.pos, player.sprite.size) & (checkedManna != posManna) & (a == b)){// & (qwe[0] < (player.pos[0] + 15) | qwe[0] < (player.pos[0] - 15)))  {
+                a++;
+                checkedManna = posManna;
                 manna.splice(i, 1);
-                scoreManna += 1;
-                // Add new manna
-                manna.push({
-                    pos: posManna,
-                    sprite: new Sprite('img/sprites.png', [0, 164], [57, 39], 6, [0, 1, 2, 3], null, true)
-                });
+                
                 //add manna to the map
                 updateManna();
                 
-                i--;
+                scoreManna++;
+                // Add new manna
+                manna.push({
+                    pos: checkedManna,
+                    sprite: new Sprite('img/sprites.png', [0, 164], [57, 39], 8, [1, 2, 3], null, true)
+                });
+                b++;
                 break;
+
             }
+        
     }
 }
+
+
 
 function checkPlayerBounds() {
     // Check bounds
