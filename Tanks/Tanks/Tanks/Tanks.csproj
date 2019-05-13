@@ -115,5 +115,23 @@
   <ItemGroup>
     <None Include="Resources\apple.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tankDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tankLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tankRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tankUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BattleCity-Tanks_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameOver.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

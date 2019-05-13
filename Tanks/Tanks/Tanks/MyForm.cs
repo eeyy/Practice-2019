@@ -22,7 +22,7 @@ namespace Tanks
         private Point coordinatesKolobok = Point.Empty;
         private Point coordinatesTank = Point.Empty;
         private Point[] arrPointsApple = { };
-        private Point[] arrPointsTank = { };
+        private List<Tank> listTanks = new List<Tank>();
 
         private string direction = "RIGHT";
         private string[] arrDirection =
@@ -92,7 +92,7 @@ namespace Tanks
         private void MyForm_KeyDown(Keys keys)
         {
             packmanController.KeyDown(keys);
-            kolobokView.EditImage(keys);
+            kolobokView.EditImageKolobok(keys);
             pictureBox1.Image = kolobokView.CreateViewKolobok(coordinatesKolobok, pictureBox1).Image;
         }
 
@@ -120,8 +120,9 @@ namespace Tanks
             pictureBox1.Image = appleView.CreateViewApple(arrPointsApple, pictureBox1).Image;
             pictureBox1.Image = kolobokView.CreateViewKolobok(coordinatesKolobok, pictureBox1).Image;
             ///CodeTanks
-            arrPointsTank = tankController.GoTank(arrPointsTank, packmanController.arrCoordinateHurdles);
-            pictureBox1.Image = tankView.CreateViewTank(arrPointsTank, pictureBox1).Image;
+            listTanks = tankController.GoTank(packmanController.arrCoordinateHurdles);
+            //tankController.checkAccidentTankToTank();
+            pictureBox1.Image = tankView.CreateViewTank(listTanks, pictureBox1).Image;
             ////////////
             lbCount.Text = "Count: " + packmanController.kolobok.score.ToString();//Показывает счёт игры
             GC.Collect();//сборщик мусора
@@ -140,10 +141,29 @@ namespace Tanks
 
         private void timerForTank_Tick_1(object sender, EventArgs e)
         {
-            var arrToList = new List<Point>(arrPointsTank);
-            arrToList.Add(tankController.CreateTank(packmanController.arrCoordinateHurdles, packmanController.kolobok, arrPointsApple, arrPointsTank));
-            arrPointsTank = arrToList.ToArray();
-            
+            //var arrToList = new List<Point>(arrPointsTank);
+            //arrToList.Add(tankController.CreateTank(packmanController.arrCoordinateHurdles, packmanController.kolobok, arrPointsApple, arrPointsTank));
+            //arrPointsTank = arrToList.ToArray();
+            if (listTanks.Count <= 5)
+            tankController.CreateTank(packmanController.arrCoordinateHurdles, packmanController.kolobok, arrPointsApple);
+        }
+
+        private void timerForDirecTank_Tick(object sender, EventArgs e)
+        {
+            tankController.EditDerection();
+
+            //if (tankController.EditDerection() != null)
+            //{
+            //    pictureBox1.Image = tankView.EditImageTank(tankController.EditDerection(), pictureBox1).Image;
+            //    tankView.EditImageTank(tankController.EditDerection());
+            //}
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+
+            tankController.checkAccidentTankToTank();
+            tankController.checkAccidentTankToKolobok(packmanController.kolobok, pictureBox1);
         }
     }
 }

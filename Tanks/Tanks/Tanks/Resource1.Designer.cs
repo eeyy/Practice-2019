@@ -93,6 +93,16 @@ namespace Tanks {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gameOver {
+            get {
+                object obj = ResourceManager.GetObject("gameOver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap packman {
             get {
                 object obj = ResourceManager.GetObject("packman", resourceCulture);
@@ -113,9 +123,39 @@ namespace Tanks {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tank {
+        internal static System.Drawing.Bitmap tankDown {
             get {
-                object obj = ResourceManager.GetObject("tank", resourceCulture);
+                object obj = ResourceManager.GetObject("tankDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tankLeft {
+            get {
+                object obj = ResourceManager.GetObject("tankLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tankRight {
+            get {
+                object obj = ResourceManager.GetObject("tankRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tankUp {
+            get {
+                object obj = ResourceManager.GetObject("tankUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

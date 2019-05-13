@@ -13,15 +13,17 @@ namespace Tanks
         public int sizeX;
         public int sizeY;
         public int speed;
+        public string direction;
 
 
-        public Tank(int X, int Y, int SizeX, int SizeY, int Speed)
+        public Tank(int X, int Y, int SizeX, int SizeY, int Speed, string Direction)
         {
             x = X;
             y = Y;
             sizeX = SizeX;
             sizeY = SizeY;
             speed = Speed;
+            direction = Direction;
         }
         public Tank()
         {

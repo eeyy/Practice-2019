@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Tanks
 {
     class TankController
     {
-        private string direction = "RIGHT";
+        int n = 0;
         private string[] arrDirection =
         {
             "UP",
@@ -18,45 +20,56 @@ namespace Tanks
             "RIGHT"
         };
         Tank tank = new Tank();
-        Point coordinatesTank = Point.Empty;
+        List<Tank> tanksList = new List<Tank>();
+
+        KolobokView kolobokView = new KolobokView();
 
 
-        public Point CreateTank(Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateApple, Point[] arrCoordinatesTank)//Первый танк почему-то ставится рандомно игнорируя стенки 
+        public List<Tank> CreateTank(Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateApple)//Первый танк почему-то ставится рандомно игнорируя стенки 
         {
-            int width = 65;
-            int height = 65;
+            n++;////Первый танк почему-то ставится рандомно, игнорируя стенки 
+            Point coordinatesTank = Point.Empty;
+            int width = 56;
+            int height = 56;
             int speed = 3; /////SPEED
+            string direction = "RIGHT";
+
             Random random = new Random();
-            
-            
+
             bool check = true;
 
-            while (check)
+            if (n == 1)
             {
-                coordinatesTank.X = random.Next(36, 684);
-                coordinatesTank.Y = random.Next(16, 560);
-                
-                if (checkCollisTank(coordinatesTank, arrCoordinateHurdles))
-                    continue;
-                if (checkCollisTank(coordinatesTank, arrCoordinateApple))
-                    continue;
-                if (checkCollisTank(coordinatesTank, transfCoordKolToArr(kolobok)))
-                    continue;
-                if (checkCollisTank(coordinatesTank, arrCoordinatesTank))
-                    continue;
-                check = false;
+                coordinatesTank.X = 230;
+                coordinatesTank.Y = 400;
             }
-
-            Tank tank = new Tank(coordinatesTank.X, coordinatesTank.Y, width, height, speed);
+            else
+                while (check)
+                {
+                    coordinatesTank.X = random.Next(36, 684);
+                    coordinatesTank.Y = random.Next(16, 560);
+                
+                    if (checkCollisTank(coordinatesTank, arrCoordinateHurdles))
+                        continue;
+                    if (checkCollisTank(coordinatesTank, arrCoordinateApple))
+                        continue;
+                    if (checkCollisTank(coordinatesTank, transfCoordKolToArr(kolobok)))
+                        continue;
+                    if (checkCollisTank(coordinatesTank, tanksList))
+                        continue;
+                    check = false;
+                }
+            
+            Tank tank = new Tank(coordinatesTank.X, coordinatesTank.Y, width, height, speed, direction);
             this.tank = tank;
+            tanksList.Add(tank);
 
-            return coordinatesTank;
+            return tanksList;
         }
 
         public bool checkCollisTank(Point coordTank, Point[] arrCoordOtherObject)
         {
             int n = 0;
-            
             for (int j = 0; j < arrCoordOtherObject.Length; j++)
             {
                 if (!collides(coordTank.X, coordTank.Y, coordTank.X + tank.sizeX, coordTank.Y + tank.sizeY, arrCoordOtherObject[j].X, arrCoordOtherObject[j].Y, arrCoordOtherObject[j].X + 40, arrCoordOtherObject[j].Y + 40))
@@ -65,10 +78,24 @@ namespace Tanks
                 if (n == arrCoordOtherObject.Length)
                     return false;
             }
-            
             return false;
         }
-    
+
+        public bool checkCollisTank(Point coordTank, List<Tank> arrCoordOtherObject)
+        {
+            int n = 0;
+            for (int j = 0; j < arrCoordOtherObject.Count; j++)
+            {
+                if (!collides(coordTank.X, coordTank.Y, coordTank.X + tank.sizeX, coordTank.Y + tank.sizeY, arrCoordOtherObject[j].x, arrCoordOtherObject[j].y, arrCoordOtherObject[j].x + tank.sizeX, arrCoordOtherObject[j].y + tank.sizeY))
+                    n++;
+                else return true;
+                if (n == arrCoordOtherObject.Count)
+                    return false;
+            }
+            return false;
+        }
+
+
         public Point[] transfCoordKolToArr(Kolobok kolobok)
         {
             Point[] arrCoordKolobok = new Point[1];
@@ -83,77 +110,145 @@ namespace Tanks
                      b <= y2 || y > b2);
         }
 
-
-
-
-
-
-        public Point[] GoTank(Point[] arrPointsTank, Point[] arrCoordinateHurdles)
+        public Tank EditDerection()
         {
-            for (int i = 0; i < arrPointsTank.Length; i++)
+            Random random = new Random();
+            int numberDirec = random.Next(0, 4);
+            int numderTank = random.Next(0, tanksList.Count);
+            if (tanksList.Count != 0)
             {
-                if (checkCollisionTankObstacle(arrPointsTank[i], arrCoordinateHurdles))
-                {
-                    
-                        if (direction == arrDirection[0])
-                            arrPointsTank[i].Y -= 1 * tank.speed;
-                        else if (direction == arrDirection[1])
-                            arrPointsTank[i].Y += 1 * tank.speed;
-                        else if (direction == arrDirection[2])
-                            arrPointsTank[i].X -= 1 * tank.speed;
-                        else if (direction == arrDirection[3])
-                            arrPointsTank[i].X += 1 * tank.speed;
-                    
-                }
+                tanksList[numderTank].direction = arrDirection[numberDirec];
+                return tanksList[numderTank];
             }
-            return arrPointsTank;
+            return null;
         }
 
-        public bool checkCollisionTankObstacle(Point arrPointsTank, Point[] arrCoordinateObstacle)
+        public List<Tank> GoTank(Point[] arrCoordinateHurdles)
         {
-            //for (int j = 0; j < arrPointsTank.Length; j++)
-            //{
-                for (int i = 0; i < arrCoordinateObstacle.Length; i++)
+
+            for (int i = 0; i < tanksList.Count; i++)
+            {
+                if (checkCollisionTankObstacle(tanksList[i], arrCoordinateHurdles))
                 {
-                    if (direction == "UP")
-                    {
-                        if (collides(arrPointsTank.X, arrPointsTank.Y, arrPointsTank.X + tank.sizeX, arrPointsTank.Y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16 + tank.speed))
-                            return false;
-                    }
-                    if (direction == "DOWN")
-                    {
-                        if (collides(arrPointsTank.X, arrPointsTank.Y, arrPointsTank.X + tank.sizeX, arrPointsTank.Y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - tank.speed, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
-                            return false;
-                    }
-                    if (direction == "LEFT")
-                    {
-                        if (collides(arrPointsTank.X - tank.speed, arrPointsTank.Y, arrPointsTank.X + tank.sizeX, arrPointsTank.Y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
-                            return false;
-                    }
-                    if (direction == "RIGHT")
-                    {
-                        if (collides(arrPointsTank.X, arrPointsTank.Y, arrPointsTank.X + tank.sizeX + tank.speed, arrPointsTank.Y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
 
-                            return false;
-                    }
+                    if (tanksList[i].direction == arrDirection[0])
+                        tanksList[i].y -= tank.speed;
+                    else if (tanksList[i].direction == arrDirection[1])
+                        tanksList[i].y += tank.speed;
+                    else if (tanksList[i].direction == arrDirection[2])
+                        tanksList[i].x -= tank.speed;
+                    else if (tanksList[i].direction == arrDirection[3])
+                        tanksList[i].x += tank.speed;
                 }
+            }
+            return tanksList;
+        }
 
-                //if (direction == arrDirection[0])
-                //    arrPointsTank.Y -= 1 * tank.speed;
-                //else if (direction == arrDirection[1])
-                //    arrPointsTank.Y += 1 * tank.speed;
-                //else if (direction == arrDirection[2])
-                //    arrPointsTank.X -= 1 * tank.speed;
-                //else if (direction == arrDirection[3])
-                //    arrPointsTank.X += 1 * tank.speed;
-                //if (j == arrPointsTank.Length - 1)
+        public bool checkCollisionTankObstacle(Tank tank, Point[] arrCoordinateObstacle)
+        {
+            for (int i = 0; i < arrCoordinateObstacle.Length; i++)
+            {
+                if (tank.direction == "UP")
+                {
+                    if (collides(tank.x, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16 + tank.speed))
+                        return false;
+                }
+                if (tank.direction == "DOWN")
+                {
+                    if (collides(tank.x, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - tank.speed, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                        return false;
+                }
+                if (tank.direction == "LEFT")
+                {
+                    if (collides(tank.x - tank.speed, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                        return false;
+                }
+                if (tank.direction == "RIGHT")
+                {
+                    if (collides(tank.x, tank.y, tank.x + tank.sizeX + tank.speed, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
 
-                //{
-                //    return true;
-                //}
-           // }
+                        return false;
+                }
+            }
             return true;
         }
 
+        public void checkAccidentTankToTank()
+        {
+            for (int  i = 0; i < tanksList.Count; i++)
+            {
+                for (int j = 0; j < tanksList.Count; j++)
+                {
+                    if (tanksList[j].direction == "UP")
+                    {
+                        if (collides(tanksList[i].x, tanksList[i].y, tanksList[i].x + tank.sizeX, tanksList[i].y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY + tank.speed) && (tanksList[i] != tanksList[j]))
+                            tanksList[j].direction = "DOWN";
+                    }
+                    else
+                    {
+                        if (tanksList[j].direction == "DOWN")
+                        {
+                            if (collides(tanksList[i].x, tanksList[i].y, tanksList[i].x + tank.sizeX, tanksList[i].y + tank.sizeY, tanksList[j].x, tanksList[j].y - tank.speed, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY) && (tanksList[i] != tanksList[j]))
+                                tanksList[j].direction = "UP";
+                        }
+                        else
+                        {
+                            if (tanksList[j].direction == "LEFT")
+                            {
+                                if (collides(tanksList[i].x - tank.speed, tanksList[i].y, tanksList[i].x + tank.sizeX, tanksList[i].y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY) && (tanksList[i] != tanksList[j]))
+                                    tanksList[j].direction = "RIGHT";
+                            }
+                            else
+                            {
+                                if (tanksList[j].direction == "RIGHT")
+                                {
+                                    if (collides(tanksList[i].x, tanksList[i].y, tanksList[i].x + tank.sizeX + tank.speed, tanksList[i].y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY) && (tanksList[i] != tanksList[j]))
+                                        tanksList[j].direction = "LEFT";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public void checkAccidentTankToKolobok(Kolobok kolobok, PictureBox pictureBox)
+        {
+            Point coordKolobok = new Point();
+            coordKolobok.X = kolobok.x;
+            coordKolobok.Y = kolobok.y;
+
+            for (int j = 0; j < tanksList.Count; j++)
+            {
+                if (tanksList[j].direction == "UP")
+                {
+                    if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY + tank.speed))
+                        kolobokView.GameOver(pictureBox);
+                }
+                else
+                {
+                    if (tanksList[j].direction == "DOWN")
+                    {
+                        if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y - tank.speed, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY))
+                            kolobokView.GameOver(pictureBox);
+                    }
+                    else
+                    {
+                        if (tanksList[j].direction == "LEFT")
+                        {
+                            if (collides(coordKolobok.X - tank.speed, coordKolobok.Y, coordKolobok.X + tank.sizeX, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY))
+                                kolobokView.GameOver(pictureBox);
+                        }
+                        else
+                        {
+                            if (tanksList[j].direction == "RIGHT")
+                            {
+                                if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX + tank.speed, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY))
+                                    kolobokView.GameOver(pictureBox);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Tanks
         private Image imageKolobol = Resource1.packman;
         private string oldDirection = "RIGHT";
 
-        public void EditImage(Keys keys)//поворачивает рисунок в зависимости от направления движения
+        public void EditImageKolobok(Keys keys)//поворачивает рисунок в зависимости от направления движения
         {
             if (oldDirection == "RIGHT")
             {
@@ -88,7 +88,6 @@ namespace Tanks
                         break;
                 }
             }
-
         }
 
         public PictureBox CreateViewKolobok(Point coordinates, PictureBox FormPictureBox)
@@ -100,5 +99,16 @@ namespace Tanks
             MyPictureBox.Image = flag;
             return MyPictureBox;
         }
+
+        public PictureBox GameOver(PictureBox FormPictureBox)
+        {
+            Bitmap flag = new Bitmap(FormPictureBox.Image);
+            Graphics flagGraphics = Graphics.FromImage(flag);
+            flagGraphics.DrawImage(Resource1.gameOver, 400, 400);
+
+            MyPictureBox.Image = flag;
+            return MyPictureBox;
+        }
+
     }
 }

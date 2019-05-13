@@ -33,7 +33,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.timerForWorkProgram = new System.Windows.Forms.Timer(this.components);
             this.lbCount = new System.Windows.Forms.Label();
-            this.timerForTank = new System.Windows.Forms.Timer(this.components);
+            this.timerForCreateTank = new System.Windows.Forms.Timer(this.components);
+            this.timerForDirecTank = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(496, 952);
+            this.button1.Location = new System.Drawing.Point(500, 952);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 36);
             this.button1.TabIndex = 1;
@@ -69,11 +71,22 @@
             this.lbCount.TabIndex = 2;
             this.lbCount.Text = "Count";
             // 
-            // timerForTank
+            // timerForCreateTank
             // 
-            this.timerForTank.Enabled = true;
-            this.timerForTank.Interval = 2000;
-            this.timerForTank.Tick += new System.EventHandler(this.timerForTank_Tick_1);
+            this.timerForCreateTank.Enabled = true;
+            this.timerForCreateTank.Interval = 2000;
+            this.timerForCreateTank.Tick += new System.EventHandler(this.timerForTank_Tick_1);
+            // 
+            // timerForDirecTank
+            // 
+            this.timerForDirecTank.Enabled = true;
+            this.timerForDirecTank.Interval = 800;
+            this.timerForDirecTank.Tick += new System.EventHandler(this.timerForDirecTank_Tick);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // MyForm
             // 
@@ -98,7 +111,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timerForWorkProgram;
         private System.Windows.Forms.Label lbCount;
-        private System.Windows.Forms.Timer timerForTank;
+        private System.Windows.Forms.Timer timerForCreateTank;
+        private System.Windows.Forms.Timer timerForDirecTank;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

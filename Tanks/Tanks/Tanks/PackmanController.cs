@@ -36,13 +36,13 @@ namespace Tanks
             if (checkCollisionKolHurd(arrCoordinateHurdles))
             {
                 if (direction == arrDirection[0])
-                    kolobok.y -= 1 * kolobok.speed;
+                    kolobok.y -= kolobok.speed;
                 else if (direction == arrDirection[1])
-                    kolobok.y += 1 * kolobok.speed;
+                    kolobok.y += kolobok.speed;
                 else if (direction == arrDirection[2])
-                    kolobok.x -= 1 * kolobok.speed;
+                    kolobok.x -= kolobok.speed;
                 else if (direction == arrDirection[3])
-                    kolobok.x += 1 * kolobok.speed;
+                    kolobok.x += kolobok.speed;
             }
         }
 
@@ -195,7 +195,7 @@ namespace Tanks
                 y += 16;
             }
             x = 144;
-            y = 388;
+            y = 420;
             for (int i = 166; i < 171; i++)
             {
                 arrCoordinateHurdles[i].X = x;
@@ -203,7 +203,7 @@ namespace Tanks
                 y += 16;
             }
             x = 180;
-            y = 388;
+            y = 420;
             for (int i = 171; i < 176; i++)
             {
                 arrCoordinateHurdles[i].X = x;
@@ -261,7 +261,7 @@ namespace Tanks
                 x += 36;
             }
             x = 468;
-            y = 446;
+            y = 430;
             for (int i = 235; i < 240; i++)
             {
                 arrCoordinateHurdles[i].X = x;
