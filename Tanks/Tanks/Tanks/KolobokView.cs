@@ -100,11 +100,21 @@ namespace Tanks
             return MyPictureBox;
         }
 
-        public PictureBox GameOver(PictureBox FormPictureBox)
+        public PictureBox GameOver(Point coordinates, PictureBox FormPictureBox)
         {
             Bitmap flag = new Bitmap(FormPictureBox.Image);
             Graphics flagGraphics = Graphics.FromImage(flag);
-            flagGraphics.DrawImage(Resource1.gameOver, 400, 400);
+            flagGraphics.DrawImage(Resource1.bang, coordinates.X, coordinates.Y, 40, 40);
+            flagGraphics.DrawImage(Resource1.gameOver, 200, 180);
+            MyPictureBox.Image = flag;
+            return MyPictureBox;
+        }
+
+        public PictureBox ResetViewKolobok(Point coordinates, PictureBox FormPictureBox)
+        {
+            Bitmap flag = new Bitmap(FormPictureBox.Image);
+            Graphics flagGraphics = Graphics.FromImage(flag);
+            flagGraphics.DrawImage(Resource1.fone, coordinates.X, coordinates.Y, 40, 40);
 
             MyPictureBox.Image = flag;
             return MyPictureBox;

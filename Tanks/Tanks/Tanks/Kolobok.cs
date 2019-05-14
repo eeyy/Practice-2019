@@ -14,9 +14,10 @@ namespace Tanks
         public int sizeY;
         public int speed;
         public int score;
+        public string direction;
 
 
-        public Kolobok(int X, int Y, int SizeX, int SizeY, int Speed, int Score)
+        public Kolobok(int X, int Y, int SizeX, int SizeY, int Speed, int Score, string Direction)
         {
             x = X;
             y = Y;
@@ -24,6 +25,7 @@ namespace Tanks
             sizeY = SizeY;
             speed = Speed;
             score = Score;
+            direction = Direction;
         }
         public Kolobok()
         {
@@ -33,6 +35,7 @@ namespace Tanks
             sizeY = 0;
             speed = 1;
             score = 0;
-    }
+            direction = "RIGHT";
+        }
     }
 }

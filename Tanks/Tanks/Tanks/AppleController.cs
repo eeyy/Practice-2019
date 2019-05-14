@@ -87,7 +87,6 @@ namespace Tanks
             return false;
         }
 
-        
 
         public Point[] transfCoordKolToArr(Kolobok kolobok)
         {

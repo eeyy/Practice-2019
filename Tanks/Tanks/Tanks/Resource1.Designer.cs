@@ -73,9 +73,89 @@ namespace Tanks {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bulets {
+        internal static System.Drawing.Bitmap bang {
             get {
-                object obj = ResourceManager.GetObject("bulets", resourceCulture);
+                object obj = ResourceManager.GetObject("bang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletKolobokDown {
+            get {
+                object obj = ResourceManager.GetObject("bulletKolobokDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletKolobokLeft {
+            get {
+                object obj = ResourceManager.GetObject("bulletKolobokLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletKolobokRight {
+            get {
+                object obj = ResourceManager.GetObject("bulletKolobokRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletKolobokUp {
+            get {
+                object obj = ResourceManager.GetObject("bulletKolobokUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletTankDown {
+            get {
+                object obj = ResourceManager.GetObject("bulletTankDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletTankLeft {
+            get {
+                object obj = ResourceManager.GetObject("bulletTankLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletTankRight {
+            get {
+                object obj = ResourceManager.GetObject("bulletTankRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulletTankUp {
+            get {
+                object obj = ResourceManager.GetObject("bulletTankUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

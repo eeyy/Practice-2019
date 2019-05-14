@@ -11,20 +11,15 @@ namespace Tanks
     {
         public Image CreateViewFone(Point[] arrCoordinateHurdles)
         {
-            return CreateMap(arrCoordinateHurdles);
-        }
-
-
-        public Image CreateMap(Point[] arrCoordinates)
-        {
             Bitmap flag = new Bitmap(Resource1.fone);
             Graphics flagGraphics = Graphics.FromImage(flag);
-            for (int i = 0; i < arrCoordinates.Length; i++)
+            for (int i = 0; i < arrCoordinateHurdles.Length; i++)
             {
 
-                flagGraphics.DrawImage(Resource1.stone, arrCoordinates[i].X, arrCoordinates[i].Y);
+                flagGraphics.DrawImage(Resource1.stone, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y);
             }
             return flag;
         }
+
     }
 }

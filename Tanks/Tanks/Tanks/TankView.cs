@@ -45,18 +45,27 @@ namespace Tanks
         }
 
 
-        public PictureBox RemoveViewTank(Point coordinates, PictureBox FormPictureBox)
+        public PictureBox RemoveViewTank(Tank tank, PictureBox FormPictureBox)
         {
 
             Bitmap flag = new Bitmap(FormPictureBox.Image);
             Graphics flagGraphics = Graphics.FromImage(flag);
-            if (!coordinates.IsEmpty)
-                flagGraphics.DrawImage(Resource1.fone, coordinates.X, coordinates.Y, 30, 34);//вопрос по размеру
 
+            flagGraphics.DrawImage(Resource1.fone, tank.x, tank.y, tank.sizeX, tank.sizeY);
             MyPictureBox.Image = flag;
             return MyPictureBox;
         }
 
+        public PictureBox BangViewTank(Tank tank, PictureBox FormPictureBox)
+        {
+
+            Bitmap flag = new Bitmap(FormPictureBox.Image);
+            Graphics flagGraphics = Graphics.FromImage(flag);
+
+            flagGraphics.DrawImage(Resource1.bang, tank.x, tank.y, tank.sizeX, tank.sizeY);
+            MyPictureBox.Image = flag;
+            return MyPictureBox;
+        }
 
         /*
         public PictureBox EditImageTank(Tank tank)//поворачивает рисунок в зависимости от направления движения

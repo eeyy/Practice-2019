@@ -8,7 +8,6 @@ namespace Tanks
     {
         private Point RemovedApple = Point.Empty;
         private Point coordinatesKolobok = Point.Empty;
-        private string direction = "RIGHT";
         private string[] arrDirection =
         {
             "UP",
@@ -22,26 +21,30 @@ namespace Tanks
         private static int height = 40;
         private static int speed = 3;
         private static int score = 0;
-
+        private static string direction = "RIGHT";
 
         public Point[] arrCoordinateHurdles = new Point[250];
-        public Kolobok kolobok = new Kolobok(x, y, width, height, speed, score);
+
+        public Kolobok kolobok = new Kolobok(x, y, width, height, speed, score, direction);
 
 
-
-
+        public void ResetKolobok()
+        {
+            kolobok = new Kolobok(x, y, width, height, speed, score, direction);
+        }
+            
         //Движение колобка
         public void GoKolobok()
         {
             if (checkCollisionKolHurd(arrCoordinateHurdles))
             {
-                if (direction == arrDirection[0])
+                if (kolobok.direction == arrDirection[0])
                     kolobok.y -= kolobok.speed;
-                else if (direction == arrDirection[1])
+                else if (kolobok.direction == arrDirection[1])
                     kolobok.y += kolobok.speed;
-                else if (direction == arrDirection[2])
+                else if (kolobok.direction == arrDirection[2])
                     kolobok.x -= kolobok.speed;
-                else if (direction == arrDirection[3])
+                else if (kolobok.direction == arrDirection[3])
                     kolobok.x += kolobok.speed;
             }
         }
@@ -51,19 +54,19 @@ namespace Tanks
         {
             if (keys == Keys.Down)
             {
-                direction = arrDirection[1];
+                kolobok.direction = arrDirection[1];
             }
             if (keys == Keys.Up)
             {
-                direction = arrDirection[0];
+                kolobok.direction = arrDirection[0];
             }
             if (keys == Keys.Right)
             {
-                direction = arrDirection[3];
+                kolobok.direction = arrDirection[3];
             }
             if (keys == Keys.Left)
             {
-                direction = arrDirection[2];
+                kolobok.direction = arrDirection[2];
             }
         }
 
@@ -294,22 +297,22 @@ namespace Tanks
         {
             for (int i = 0; i < arrCoordinateHurdles.Length; i++)
             {
-                if (direction == "UP")
+                if (kolobok.direction == "UP")
                 {
                     if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16 + speed))
                         return false;
                 }
-                if (direction == "DOWN")
+                if (kolobok.direction == "DOWN")
                 {
                     if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y - speed, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
                         return false;
                 }
-                if (direction == "LEFT")
+                if (kolobok.direction == "LEFT")
                 {
                     if (collides(kolobok.x - speed, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
                         return false;
                 }
-                if (direction == "RIGHT")
+                if (kolobok.direction == "RIGHT")
                 {
                     if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX + speed, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
                         return false;

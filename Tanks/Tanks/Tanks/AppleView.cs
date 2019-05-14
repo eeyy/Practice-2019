@@ -36,5 +36,6 @@ namespace Tanks
             MyPictureBox.Image = flag;
             return MyPictureBox;
         }
+
     }
 }

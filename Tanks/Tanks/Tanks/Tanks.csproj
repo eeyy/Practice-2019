@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="AppleController.cs" />
     <Compile Include="AppleView.cs" />
+    <Compile Include="Bullet.cs" />
+    <Compile Include="BulletController.cs" />
+    <Compile Include="BulletView.cs" />
     <Compile Include="FoneView.cs" />
     <Compile Include="MyForm.cs">
       <SubType>Form</SubType>
@@ -132,6 +135,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gameOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BattleCity2Submit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletKolobok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletTank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletKolobokDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletKolobokLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletKolobokRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletKolobokUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletTankDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletTankLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletTankRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletTankUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tanks\tankDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tanks\tankLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tanks\tankRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tanks\tankUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletKolobokDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletKolobokLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletKolobokRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletKolobokUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletTankDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletTankLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletTankRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullets\bulletTankUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

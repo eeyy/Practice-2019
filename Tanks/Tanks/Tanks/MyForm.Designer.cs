@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNewGame = new System.Windows.Forms.Button();
             this.timerForWorkProgram = new System.Windows.Forms.Timer(this.components);
             this.lbCount = new System.Windows.Forms.Label();
             this.timerForCreateTank = new System.Windows.Forms.Timer(this.components);
             this.timerForDirecTank = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerForBullet = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,14 +48,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnNewGame
             // 
-            this.button1.Location = new System.Drawing.Point(500, 952);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 36);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "New Game";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNewGame.CausesValidation = false;
+            this.btnNewGame.Location = new System.Drawing.Point(500, 952);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(107, 36);
+            this.btnNewGame.TabIndex = 1;
+            this.btnNewGame.Text = "New Game";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // timerForWorkProgram
             // 
@@ -88,13 +91,19 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // timerForBullet
+            // 
+            this.timerForBullet.Enabled = true;
+            this.timerForBullet.Interval = 1500;
+            this.timerForBullet.Tick += new System.EventHandler(this.timerForBullet_Tick);
+            // 
             // MyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 1009);
             this.Controls.Add(this.lbCount);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MyForm";
             this.Text = "Form1";
@@ -108,12 +117,13 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Timer timerForWorkProgram;
         private System.Windows.Forms.Label lbCount;
         private System.Windows.Forms.Timer timerForCreateTank;
         private System.Windows.Forms.Timer timerForDirecTank;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerForBullet;
     }
 }
 

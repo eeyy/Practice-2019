@@ -121,9 +121,6 @@
   <data name="apple" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\apple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bulets" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\bulets.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\fone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,16 +133,43 @@
   <data name="stone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\stone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bang" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletKolobokDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletKolobokDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletKolobokLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletKolobokLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletKolobokRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletKolobokRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletKolobokUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletKolobokUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletTankDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletTankDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletTankLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletTankLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletTankRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletTankRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bulletTankUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bullets\bulletTankUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tankDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\tankDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Resources\Tanks\tankDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tankLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\tankLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Resources\Tanks\tankLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tankRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\tankRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Resources\Tanks\tankRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tankUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\tankUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Resources\Tanks\tankUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

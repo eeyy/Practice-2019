@@ -21,9 +21,8 @@ namespace Tanks
         };
         Tank tank = new Tank();
         List<Tank> tanksList = new List<Tank>();
-
-        KolobokView kolobokView = new KolobokView();
-
+        BulletView bulletView = new BulletView();
+        
 
         public List<Tank> CreateTank(Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateApple)//Первый танк почему-то ставится рандомно игнорируя стенки 
         {
@@ -67,6 +66,13 @@ namespace Tanks
             return tanksList;
         }
 
+
+        public void SetListTank(List<Tank> newTanksList)
+        {
+            tanksList = newTanksList;
+        }
+
+
         public bool checkCollisTank(Point coordTank, Point[] arrCoordOtherObject)
         {
             int n = 0;
@@ -104,11 +110,7 @@ namespace Tanks
             return arrCoordKolobok;
         }
 
-        public bool collides(int x, int y, int r, int b, int x2, int y2, int r2, int b2)
-        {
-            return !(r <= x2 || x > r2 ||
-                     b <= y2 || y > b2);
-        }
+        
 
         public Tank EditDerection()
         {
@@ -211,7 +213,7 @@ namespace Tanks
                 }
             }
         }
-        public void checkAccidentTankToKolobok(Kolobok kolobok, PictureBox pictureBox)
+        public bool checkAccidentTankToKolobok(Kolobok kolobok)
         {
             Point coordKolobok = new Point();
             coordKolobok.X = kolobok.x;
@@ -221,34 +223,49 @@ namespace Tanks
             {
                 if (tanksList[j].direction == "UP")
                 {
-                    if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY + tank.speed))
-                        kolobokView.GameOver(pictureBox);
+                    if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX - 11, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX - 11, tanksList[j].y + tank.sizeY + tank.speed))
+                        return true;
                 }
                 else
                 {
                     if (tanksList[j].direction == "DOWN")
                     {
-                        if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y - tank.speed, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY))
-                            kolobokView.GameOver(pictureBox);
+                        if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX - 15, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y - tank.speed, tanksList[j].x + tank.sizeX - 11, tanksList[j].y + tank.sizeY))
+                            return true;
                     }
                     else
                     {
                         if (tanksList[j].direction == "LEFT")
                         {
-                            if (collides(coordKolobok.X - tank.speed, coordKolobok.Y, coordKolobok.X + tank.sizeX, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY))
-                                kolobokView.GameOver(pictureBox);
+                            if (collides(coordKolobok.X - tank.speed, coordKolobok.Y, coordKolobok.X + tank.sizeX - 15, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX - 3, tanksList[j].y + tank.sizeY))
+                                return true;
                         }
                         else
                         {
                             if (tanksList[j].direction == "RIGHT")
                             {
-                                if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX + tank.speed, coordKolobok.Y + tank.sizeY, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX, tanksList[j].y + tank.sizeY))
-                                    kolobokView.GameOver(pictureBox);
+                                if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX + tank.speed - 15, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX - 11, tanksList[j].y + tank.sizeY))
+                                    return true;
                             }
                         }
                     }
                 }
             }
+            return false;
+        }
+       
+
+        public PictureBox BangTank(PictureBox pictureBox, Tank tank)
+        {
+            TankView tankView = new TankView();
+            return tankView.RemoveViewTank(tank, pictureBox);
+        }
+
+
+        public bool collides(int x, int y, int r, int b, int x2, int y2, int r2, int b2)
+        {
+            return !(r <= x2 || x > r2 ||
+                     b <= y2 || y > b2);
         }
     }
 }
