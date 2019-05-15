@@ -49,8 +49,10 @@
     <Compile Include="AppleController.cs" />
     <Compile Include="AppleView.cs" />
     <Compile Include="Bullet.cs" />
-    <Compile Include="BulletController.cs" />
-    <Compile Include="BulletView.cs" />
+    <Compile Include="BulletKolController.cs" />
+    <Compile Include="BulletTankController.cs" />
+    <Compile Include="BulletTankView.cs" />
+    <Compile Include="BulletKolView.cs" />
     <Compile Include="FoneView.cs" />
     <Compile Include="MyForm.cs">
       <SubType>Form</SubType>
@@ -63,6 +65,12 @@
     <Compile Include="PackmanController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>

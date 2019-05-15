@@ -19,7 +19,7 @@ namespace Tanks
         private static int y = 317;
         private static int width = 40;
         private static int height = 40;
-        private static int speed = 3;
+        private static int speed = 4;
         private static int score = 0;
         private static string direction = "RIGHT";
 
@@ -309,12 +309,12 @@ namespace Tanks
                 }
                 if (kolobok.direction == "LEFT")
                 {
-                    if (collides(kolobok.x - speed, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
+                    if (collides(kolobok.x - speed, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 37, arrCoordinateHurdles[i].Y + 16))
                         return false;
                 }
                 if (kolobok.direction == "RIGHT")
                 {
-                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX + speed, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
+                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX + speed + 2, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
                         return false;
                 }
 
@@ -348,6 +348,13 @@ namespace Tanks
             return RemovedApple;
         }
 
+        public PictureBox BangKolobok(PictureBox pictureBox)
+        {
+            //Point coordKolobok = new Point();
+            //coordKolobok
+            KolobokView kolobokView = new KolobokView();
+            return kolobokView.GameOver(GetCoodinateKolobok(), pictureBox);
+        }
 
 
         public bool collides(int x, int y, int r, int b, int x2, int y2, int r2, int b2)

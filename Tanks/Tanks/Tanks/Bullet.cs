@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tanks
 {
-    class Bullet
+    public class Bullet
     {
         public int x;
         public int y;

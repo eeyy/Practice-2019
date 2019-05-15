@@ -21,7 +21,7 @@ namespace Tanks
         };
         Tank tank = new Tank();
         List<Tank> tanksList = new List<Tank>();
-        BulletView bulletView = new BulletView();
+        BulletKolView bulletView = new BulletKolView();
         
 
         public List<Tank> CreateTank(Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateApple)//Первый танк почему-то ставится рандомно игнорируя стенки 
@@ -230,14 +230,14 @@ namespace Tanks
                 {
                     if (tanksList[j].direction == "DOWN")
                     {
-                        if (collides(coordKolobok.X, coordKolobok.Y, coordKolobok.X + tank.sizeX - 15, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y - tank.speed, tanksList[j].x + tank.sizeX - 11, tanksList[j].y + tank.sizeY))
+                        if (collides(coordKolobok.X - 2, coordKolobok.Y, coordKolobok.X + tank.sizeX - 15, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y - tank.speed, tanksList[j].x + tank.sizeX - 11, tanksList[j].y + tank.sizeY))
                             return true;
                     }
                     else
                     {
                         if (tanksList[j].direction == "LEFT")
                         {
-                            if (collides(coordKolobok.X - tank.speed, coordKolobok.Y, coordKolobok.X + tank.sizeX - 15, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX - 3, tanksList[j].y + tank.sizeY))
+                            if (collides(coordKolobok.X - kolobok.speed, coordKolobok.Y, coordKolobok.X + tank.sizeX - 15, coordKolobok.Y + tank.sizeY - 15, tanksList[j].x, tanksList[j].y, tanksList[j].x + tank.sizeX - 3, tanksList[j].y + tank.sizeY))
                                 return true;
                         }
                         else

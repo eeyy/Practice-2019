@@ -9,3 +9,4 @@ C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.exe
 C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.pdb
 C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.MyForm.resources
 C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.Resource1.resources
+C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.FormReport.resources

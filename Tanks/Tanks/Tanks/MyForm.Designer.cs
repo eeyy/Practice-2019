@@ -37,6 +37,7 @@
             this.timerForDirecTank = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerForBullet = new System.Windows.Forms.Timer(this.components);
+            this.btnShowReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // timerForDirecTank
             // 
             this.timerForDirecTank.Enabled = true;
-            this.timerForDirecTank.Interval = 800;
+            this.timerForDirecTank.Interval = 600;
             this.timerForDirecTank.Tick += new System.EventHandler(this.timerForDirecTank_Tick);
             // 
             // timer1
@@ -94,14 +95,25 @@
             // timerForBullet
             // 
             this.timerForBullet.Enabled = true;
-            this.timerForBullet.Interval = 1500;
+            this.timerForBullet.Interval = 1000;
             this.timerForBullet.Tick += new System.EventHandler(this.timerForBullet_Tick);
+            // 
+            // btnShowReport
+            // 
+            this.btnShowReport.Location = new System.Drawing.Point(959, 952);
+            this.btnShowReport.Name = "btnShowReport";
+            this.btnShowReport.Size = new System.Drawing.Size(116, 36);
+            this.btnShowReport.TabIndex = 3;
+            this.btnShowReport.Text = "Show report";
+            this.btnShowReport.UseVisualStyleBackColor = true;
+            this.btnShowReport.Click += new System.EventHandler(this.btnShowReport_Click);
             // 
             // MyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 1009);
+            this.Controls.Add(this.btnShowReport);
             this.Controls.Add(this.lbCount);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.pictureBox1);
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Timer timerForDirecTank;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerForBullet;
+        private System.Windows.Forms.Button btnShowReport;
     }
 }
 

@@ -13,24 +13,27 @@ namespace Tanks
 {
     public partial class MyForm : Form
     {
+        BulletTankController bulletTankController = new BulletTankController();
+        BulletKolController bulletKolController = new BulletKolController();
         PackmanController packmanController = new PackmanController();
-        BulletController bulletController = new BulletController();
         AppleController appleController = new AppleController();
         TankController tankController = new TankController();
 
+        BulletTankView bulletTankView = new BulletTankView();
+        BulletKolView bulletKolView = new BulletKolView();
         KolobokView kolobokView = new KolobokView();
-        BulletView bulletView = new BulletView();
         AppleView appleView = new AppleView();
         TankView tankView = new TankView();
         FoneView foneView = new FoneView();
 
         private Point coordinatesKolobok = Point.Empty;
-        private Point coordinatesTank = Point.Empty;
         private Point[] arrPointsApple = { };
         private Point[] arrPointsHurdles = { };
         private List<Tank> listTanks = new List<Tank>();
-        private List<Bullet> listBullet = new List<Bullet>();
+        private List<Bullet> listBulletKolobok = new List<Bullet>();
+        private List<Bullet> listBulletTank = new List<Bullet>();
         private int count = 1;
+        private FormReport formReport;
 
         private string direction = "RIGHT";
         private string[] arrDirection =
@@ -48,7 +51,7 @@ namespace Tanks
             InitializeComponent();
             btnNewGame.PreviewKeyDown += new PreviewKeyDownEventHandler(btnNewGame_PreviewKeyDown);
             btnNewGame.KeyDown += new KeyEventHandler(btnNewGame_KeyDown);
-            
+            formReport = new FormReport();
         }
 
         private void btnNewGame_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -111,18 +114,13 @@ namespace Tanks
             
             if (keys == Keys.NumPad0 & count == 1)
             {
-                bulletController.CreateBullet(packmanController.kolobok);
+                bulletKolController.CreateKolobokBullet(packmanController.kolobok);
                 count *= -1;
             }
             packmanController.KeyDown(keys);
             kolobokView.EditImageKolobok(keys);
             pictureBox1.Image = kolobokView.CreateViewKolobok(coordinatesKolobok, pictureBox1).Image;
         }
-
-
-
-
-
 
 
 
@@ -153,15 +151,22 @@ namespace Tanks
 
             pictureBox1.Image = appleView.CreateViewApple(arrPointsApple, pictureBox1).Image;
             pictureBox1.Image = kolobokView.CreateViewKolobok(coordinatesKolobok, pictureBox1).Image;
+
             ///Танки
             listTanks = tankController.GoTank(packmanController.arrCoordinateHurdles);
             pictureBox1.Image = tankView.CreateViewTank(listTanks, pictureBox1).Image;
             ///
 
             ///Снаряды колобка
-            pictureBox1.Image = bulletController.GoBullet(packmanController.arrCoordinateHurdles, pictureBox1).Image;
-            listBullet = bulletController.GetListBullet();
-            pictureBox1.Image = bulletView.CreateViewBullet(listBullet, pictureBox1).Image;
+            pictureBox1.Image = bulletKolController.GoKolobokBullet(packmanController.arrCoordinateHurdles, pictureBox1).Image;
+            listBulletKolobok = bulletKolController.GetListKolobokBullet();
+            pictureBox1.Image = bulletKolView.CreateViewBullet(listBulletKolobok, pictureBox1).Image;
+            ///
+            
+            ///Снаряды танков
+            pictureBox1.Image = bulletTankController.GoTankBullet(packmanController.arrCoordinateHurdles, pictureBox1).Image;
+            listBulletTank = bulletTankController.GetListTankBullet();
+            pictureBox1.Image = bulletTankView.CreateViewBullet(listBulletTank, pictureBox1).Image;
             ///
             lbCount.Text = "Count: " + packmanController.kolobok.score.ToString();//Показывает счёт игры
             GC.Collect();//сборщик мусора
@@ -179,6 +184,8 @@ namespace Tanks
         private void timerForDirecTank_Tick(object sender, EventArgs e)
         {
             tankController.EditDerection();
+
+            listBulletTank = bulletTankController.CreateTankBullet(listTanks);
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -191,12 +198,23 @@ namespace Tanks
                 timerForWorkProgram.Stop();
             }
             //
-            pictureBox1.Image = bulletController.checkAccidentTankToBullet(listTanks, pictureBox1).Image;
-            listBullet = bulletController.GetListBullet();
+            pictureBox1.Image = bulletKolController.checkAccidentTankToBullet(listTanks, pictureBox1).Image;
+            listBulletKolobok = bulletKolController.GetListKolobokBullet();
             //
 
-        }
+            if (bulletTankController.checkAccidentBullToKolobok(packmanController.kolobok))
+            {
+                pictureBox1.Image = kolobokView.GameOver(coordinatesKolobok, pictureBox1).Image;
+                timerForWorkProgram.Stop();
+            }
 
+            
+
+            formReport.UpdateData(coordinatesKolobok, arrPointsApple, listTanks, listBulletKolobok, listBulletTank);
+
+
+        }
+        
         private void timerForBullet_Tick(object sender, EventArgs e)
         {
             count *= -1;
@@ -236,13 +254,25 @@ namespace Tanks
                 tankController.CreateTank(packmanController.arrCoordinateHurdles, packmanController.kolobok, arrPointsApple);
             //
 
-            //снаряды
-            for (int i = 0; i < listBullet.Count; i++)
+            //снаряды колобка и танков
+            for (int i = 0; i < listBulletKolobok.Count; i++)
             {
-                pictureBox1.Image = bulletView.RemoveViewBullet(listBullet[i], pictureBox1).Image;
+                pictureBox1.Image = bulletKolView.RemoveViewBullet(listBulletKolobok[i], pictureBox1).Image;
             }
-            listBullet.RemoveRange(0, listBullet.Count);
+            listBulletKolobok.RemoveRange(0, listBulletKolobok.Count);
+
+            for (int i = 0; i < listBulletTank.Count; i++)
+            {
+                pictureBox1.Image = bulletTankView.RemoveViewBullet(listBulletTank[i], pictureBox1).Image;
+            }
+            listBulletTank.RemoveRange(0, listBulletTank.Count);
             //
+        }
+
+        private void btnShowReport_Click(object sender, EventArgs e)
+        {
+            
+            formReport.Show();
         }
     }
 }

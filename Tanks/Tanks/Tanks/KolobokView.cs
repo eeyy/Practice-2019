@@ -94,6 +94,8 @@ namespace Tanks
         {
             Bitmap flag = new Bitmap(FormPictureBox.Image);
             Graphics flagGraphics = Graphics.FromImage(flag);
+
+            flagGraphics.DrawImage(Resource1.fone, coordinates.X , coordinates.Y + 2, 42, 40);
             flagGraphics.DrawImage(imageKolobol, coordinates.X, coordinates.Y);
 
             MyPictureBox.Image = flag;
