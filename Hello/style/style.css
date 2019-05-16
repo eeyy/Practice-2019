@@ -57,35 +57,44 @@ h1{
     color: #33495F;
 }
 
+.header{
+    position: relative;
+    margin: 80px 72px 6px 69px;
+}
+
+
 .account{
+    position: absolute;
     float: left;
     background-color: white;
-    margin: 0 auto;
-    width: 435px;
-    height: 270px;
-    /*! border: 3px solid white; */
-    /*! border-radius: 1px; */
+    margin: 2px 4px;
+    width: 428px;
+    height: 290px;
+    border: 3px solid white; 
+    border-radius: 2px; 
 }
 .imgAndFullN{
     height: 190px;
 }
 .accountImg{
-    margin: 35px 26px 28px;
+    margin: 32px 22px 28px;
     background: url("image/head/attributes/ava.png") no-repeat white 50% 50%;
     width: 147px;
     height: 147px;
     float: left;
 }
 .account h1{
+    font-size: 29px; 
     width: 200px;
     float: left;
-    margin-left: 16px;
-    margin-top: 77px;
+    margin-left: 20.5px;
+    margin-top: 75px;
 }
 .account p{
     float: left;
-    margin-left: 16px;
+    margin-left: 21px;
     margin-top: -16px;
+    font-size: 17px
 }
 .clearfix::after {
     content: "";
@@ -94,8 +103,9 @@ h1{
   }
 .fastData{
     float: left;
-    margin-top: 0px;
+    margin-top: 23.5px;
     /*! width: 450px; */
+    position: absolute
 }
 
 a{
@@ -105,41 +115,49 @@ a{
 }
 .share{
     /*font-family: "Signika-Light";*/
-    float: left;
 }
 .ans{
-    background: url("image/head/attributes/checked.png") no-repeat #16C4EC 50.5% 32.7%;
-    padding: 43px 33.5px 18px;
+    background: url("image/head/attributes/checked.png") no-repeat #16C4EC 50.5% 33.7%;
+    padding: 43px 29.5px 19px 30px;
     color: white;
-    
-    
+    float: left;
+    position: relative;
+    margin-left: -2.8px;
 }
 .country{
-    background: url("image/head/attributes/country.png") no-repeat #FA5351 50% 30%;
-    margin-left: -5px;
-    padding: 43px 14.0px 18px;
+    background: url("image/head/attributes/country.png") no-repeat #FA5351 49% 29%;
+    padding: 43px 15.0px 19px 14px;
     color: white;
+    float: left;
+    position: relative;
 }
 .permis{
     background: url("image/head/attributes/drivingCategory.png") no-repeat #10CDC1 49.4% 32.9%;
-    margin-left: -3.7px;
-    padding: 43px 27.50px 18px 25px;
+    padding: 43px 20.5px 19px 22px;
     color: white;
+    float: left;
+    position: relative;
 }
 .smoke{
-    background: url("image/head/attributes/smoke.png") no-repeat #33495F 50% 29%;
-    margin-left: -8.9px;
-    padding: 43px 37.6px 18px 41.6px;
+    background: url("image/head/attributes/smoke.png") no-repeat #33495F 49% 29%;
+    padding: 43px 31.6px 19px 38px;
     color: white;
+    float: left;
+    position: relative;
+    margin-right: -2.8px;
 }
 /*Аккаунт описан сверху*/
 
 .aboutMe{
+    position: relative;
     float: left;
-    margin-left: 90px;
+    margin-left: 526px;
+    margin-top: 2px;
     background-color: white;
-    width: 820px;
-    height: 295px;
+    width: 822px;
+    height: 293px;
+    border: 1px solid white; 
+    border-radius: 4px; 
 }
 .descriptionContacts{
     width: 500px;
@@ -147,8 +165,8 @@ a{
 .aboutMe h1{
     float: left;
     width: 500px;
-    padding: 45px 28px 0px;
-    font-size: 36px;
+    padding: 43px 29px 0px;
+    font-size: 37px;
     margin: 0px;
 }
 .descriptionContacts a{
@@ -157,7 +175,7 @@ a{
 .descriptionContacts p{
     float: left;
     width: 430px;
-    padding: 0px 30.5px;
+    padding: 0px 31.5px;
     
     margin-top: 10.0px;
     line-height: 1.70;
@@ -174,19 +192,19 @@ a{
 .contacts p{
     font-size: 22.50px;
     margin: 0px;
-    padding: 16.90px 9px;
+    padding: 16.90px 10px;
     font-family: Signika-Regular;
 }
 .contacts a{
     font-size: 22.50px;
     margin-top: 0px;
-    padding: 16.90px 11px;
+    padding: 16.90px 12px;
     font-family: Signika-Regular;
     color: #fa5351;
     letter-spacing: 2.0px;
 }
 .contacts hr{
-    margin-top: 31px;
+    margin-top: 32px;
     width: 270px;
     margin-left: 12.5px;
 }
@@ -199,8 +217,8 @@ a{
 .part{
     width: 30px;
     height: 30px;
-    padding-left: 75px;
-    padding-bottom: 20px;
+    padding-left: 76px;
+    padding-bottom: 19px;
 }
 .tw{
     background: url("image/head/social/tw.png") no-repeat white 50% 60%;
@@ -222,22 +240,21 @@ a{
 }
 
 
-#header{
-
-    display: inline-block;  
-    padding: 74px 72px 0px; 
-}
 
 /*Далее middle*/
 
 ul{
-    list-style: none;
+    list-style-image: url(image/middle/workHistory/ok.png);
 }
 
 .middle{
-    padding: 15px 72px; 
+    padding: 15px 72px;
+    position: relative;
+    height: 1200px
+    /*margin: 110px;*/
 }
 .workHistory{
+    position:  absolute;
     width: 635px;
     margin-top: 18px;
     float: left;
@@ -261,12 +278,12 @@ ul{
     font-family: "Signika-Light";
     font-size: 23px;
     margin: 0px;
-    padding: 31.5px 0px 0px 23px;
+    padding: 29px 0px 0px 23px;
 }
 .workName p{
     float: left;
     width: 400px;
-    padding: 20px 12px 0px;
+    padding: 16px 17px 0px;
     color: #9ea7b4;
     margin-bottom: 2px;
 }
@@ -291,7 +308,7 @@ ul{
 }
 .listSV ul{
     padding: 
-13px 0px 0px 30px; 
+10px 0px 0px 54px; 
     margin: 0px 0px;
 }
 
@@ -450,19 +467,22 @@ ul{
 /*Далее вставка TimeScale*/
 
 .timeScale{
+    position: absolute;
     float: left;
     padding-top: 17px;
     padding-left: 1px;
+    margin-left: 650px;
 }
 
 /*Далее myAchievement's код*/
 
 .myAchievement{
-    
+    position: absolute;
     float: left;
     width: 625px;
     margin-top: 16px;
-    margin-left: 10px;
+    margin-left: 10px;   
+    margin-left: 750px;
 }
 .myAchievframeParam{
     background-color: #dbe1e8;
@@ -771,14 +791,16 @@ progress::-moz-progress-bar {
     font-size: 16px;
 }
 /*Далее footer's код*/
-#footer{
+.footer{
     margin: 21px 450px;
+    width: 650px;
+    position: absolute;
 }
-#footer img{
+.footer img{
     float: left;
 }
 
-#footer p{
+.footer p{
     font-family: "Lato-Italic";
     color: #34495e;
     float: left;
