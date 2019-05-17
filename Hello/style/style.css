@@ -262,11 +262,14 @@ ul{
 .workHistframeParam{
     background-color: white;
     border: 0.0001px solid white;
-    border-radius: 2px;
+    border-radius: 5px;
+    
+    width: 635px;
 }
 
 .secretVelvet{
-    height: 340px
+    height: 340px;
+    position: relative;
 }
 .workName{
     float: left;
@@ -285,7 +288,7 @@ ul{
     width: 400px;
     padding: 16px 17px 0px;
     color: #9ea7b4;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 .workName h2{
     float: left;
@@ -311,6 +314,7 @@ ul{
 10px 0px 0px 54px; 
     margin: 0px 0px;
 }
+
 
 
 .listSV span{
@@ -376,9 +380,14 @@ ul{
         margin-bottom: 3px;
 }
 .cortix h2{
-    
     padding-top: 2px;
 }
+
+.cortix .listSV ul{
+    margin-top: 4px;
+}
+
+
 .cortix .bottomCard p + img{
     margin-left: 30px;
     margin-right: 7px;
@@ -488,6 +497,7 @@ ul{
     background-color: #dbe1e8;
     border: 0.001px solid #dbe1e8;
     border-radius: 3px;
+    width: 626px;
 }
 /*Описание общих параметров*/
 .myAchievframeParam .workName p{
@@ -581,7 +591,7 @@ ul{
 
 .hr{
     
-    margin-top: 23px;
+    margin-top: 27px;
 }
 
 /*Далее cefire's код*/
@@ -623,7 +633,7 @@ ul{
 }
     /*Далее ecole's код*/
 .ecole {
-    margin-top: 32px;
+    margin-top: 35px;
     height: 130px;
 }
 
@@ -668,7 +678,8 @@ ul{
     
     height: 401px;
     background: white;
-    margin-top: 34px;
+    margin-top: 37px;
+    width: 626px;
 }
 
 /*Далее hobby's код*/    
@@ -792,25 +803,212 @@ progress::-moz-progress-bar {
 }
 /*Далее footer's код*/
 .footer{
-    margin: 21px 450px;
+    margin: 39px 450px;
     width: 650px;
     position: absolute;
 }
-.footer img{
+.footer span{
     float: left;
+    font-size: 117px;
+    color: #CED7DE;
+    margin-top: -28px;
+    margin-left: -10px;
+    letter-spacing: -10px;
 }
 
 .footer p{
     font-family: "Lato-Italic";
     color: #34495e;
     float: left;
-    margin: 5px 19px 0 21.5px;
+    margin: 5px 19px 0 20.5px;
     font-size: 18px;
-    letter-spacing: 0.56px;
+    letter-spacing: 0.46px;
 }
 
 
 
 
 
+ /* Добавление отступов к элементу с классом timeline */
+.timeline {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+  }
+  /* Создание вертикальной линии с помощью псевдоэлеметна */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    width: .4rem;
+    height: 94%;
+    background-color: #DBE1E8;
+    left: 2rem;
+    top: 0;
+  }
+
+    /* для вывода вертикальной линии по центру */
+    .timeline::before {
+        margin-left: 713px;
+        margin-top: 32px;
+    }
+
+
+  /* добавление нижнего отступа и левого поля для элементов с классом timeline-wrapper */
+  .timeline-wrapper {
+    margin-bottom: -.2rem;
+    padding-left: 4rem;
+  }
+  /* убирание у последнего элемента .timeline-wrapper нижнего отступа */
+  .timeline-wrapper:last-child {
+    margin-bottom: 0;
+  }
+  .row {
+    margin-left: 29px;
+    margin-top: 16px;
+  }
+
+  /* стили для элементов таймлайна */
+  .timeline-item {
+    position: relative;
+    /*background-color: #118c4e;*/
+    color: #fff;
+    padding: .0rem;
+    border-radius: .0rem;
+  }
+  /* добавление контрольных точек на вертикальную линию */
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #DEE3EF;
+    border-radius: 4rem;
+    left: -3.6rem;
+    top: 158%;
+    transform: translateY(-50%);/*////////////////////*/
+  }
+    /* стили для псевдоэлементов ::before элементов таймлайна, расположенных в 6 и 7 контейнере */
+    .timeline-wrapper:nth-child(n + 6):nth-child(-n+7) .timeline-item::before {
+        top: 161%;
+    }
+    /* стили для псевдоэлементов ::before элементf таймлайна, расположенного в 8 контейнере */
+    .timeline-wrapper:nth-child(8) .timeline-item::before {
+        top: 225.5%;
+    }
+    /* стили для псевдоэлементов ::before элементf таймлайна, расположенного в 8 контейнере */
+    .timeline-wrapper:nth-child(9) .timeline-item::before {
+        top: 72.3%;
+    }
+    /* стили для псевдоэлементов ::before элементов таймлайна, расположенных в первые 4 контейнера */  
+    .timeline-wrapper:nth-child(-n+4) .timeline-item::before {
+      background-color: #FFFFFF;
+      margin-left: 722.1px;
+      top: 50%;
+    }
+/* добавление точки начала (2004) на вертикальную линию */
+  .footer::after {
+    content: "2004";
+    position: absolute;
+    width: 61px;
+    height: 30px;
+    background-color: #DEE3EF;
+    border-radius: 0.2rem;
+    margin-left: 262px;
+    top: -143%;
+    transform: translateY(208%);/*////////////////////*/
+    font-size: 21.3px;
+    padding-left: 11px;
+    padding-top: 4px;
+    color: #FFFFFF;
+    font-family: "Lato-Regular";
+  }
+  /* добавление стрелочек к элементам таймлайна 
+  .timeline-item::after {
+    content: "";	
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-right: 1rem solid #118c4e;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }*/
+  /* стили для блока, в котором будет отображаться название статьи 
+  .timeline-item-header {
+    display: block;
+    font-weight: bold;
+    font-size: 1.125rem;
+  }
+  /* оформление блока, содержащего название раздела 
+  .timeline-item-section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(255,255,255,.4);
+    padding: .3rem;
+    font-size: .875rem;
+    border-top-right-radius: .25rem;
+  }
+  /* оформление блока, содержащего дату 
+  .timeline-item-date {
+    display: block;
+    font-size: .75rem;
+    line-height: 2;
+    color: rgba(255,255,255,.8);
+  }
+  /* стили для блока, в который будет выводиться описание статьи 
+  .timeline-item-description {
+    display: block;
+    font-size: .875rem;
+    color: rgba(255,255,255,.8);
+    line-height: 1.7;
+  }
+  /* стили для блока, содержащего ссылку "Перейти" 
+  .timeline-item-link {
+    display: block;
+    font-size: .875rem;
+    line-height: 1.7;
+    text-align: right;
+  }
+  /* стили для ссылки "Перейти" 
+  .timeline-item-link a {
+    text-decoration: none;
+    color: rgba(255,255,255,1);
+    border-bottom: 1px dashed rgba(255,255,255,1);
+  }
+  /* стили для ссылки "Перейти" при поднесении к ней курсора или когда она находится в состоянии фокуса 
+  .timeline-item-link a:hover, .timeline-item-link a:focus {
+    color: rgba(255,255,255,.8);
+    border-bottom: 1px dashed rgba(255,255,255,.8);
+  }
+  /* для адаптивности (стили для больших экранов) */
+  /*@media (min-width: 576px) {*/
+
+    /* стили для первых 4 элементов с классом timeline-wrapper */
+    .timeline-wrapper:nth-child(-n+4) {
+      padding-right: 2rem;
+      padding-left: 15px;
+      margin-right: 50%;
+      position: relative;
+    }
+    /* стили для первых 4 элементов с классом timeline-wrapper */
+    .timeline-wrapper:nth-child(3) {
+      padding-top: 4.5px;
+      padding-bottom: 3px;
+    }
+    /* стили для остальных элементов с классом timeline-wrapper */
+    .timeline-wrapper:nth-last-child(-n+5) {
+      padding-left: 2rem;
+      margin-left: 706px;
+      margin-top: 0rem;
+    }
+    
+    /* дополнительный сдвиг вверх для правой колонны */
+    .timeline-wrapper:nth-child(5) {
+        margin-top: -68.6rem;
+      }
+    
    
+  /* } */  
