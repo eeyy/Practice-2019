@@ -264,7 +264,7 @@ ul{
     border: 0.0001px solid white;
     border-radius: 5px;
     
-    width: 635px;
+    width: 633px;
 }
 
 .secretVelvet{
@@ -279,25 +279,25 @@ ul{
 .workName h1{
     float: left;
     font-family: "Signika-Light";
-    font-size: 23px;
+    font-size: 23.5px;
     margin: 0px;
     padding: 29px 0px 0px 23px;
 }
 .workName p{
     float: left;
     width: 400px;
-    padding: 16px 17px 0px;
+    padding: 16px 9px 0px;
     color: #9ea7b4;
     margin-bottom: 4px;
 }
 .workName h2{
     float: left;
     margin: 0px;
-    padding: 3px 23px;
+    padding: 1px 23px;
     color: #04bca6;
     font-family: "Signika-Light";
     font-size: 20px;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.352px;
 }
 
 .listSV{
@@ -326,11 +326,11 @@ ul{
 .bottomCard{
     
     float: left;
-    padding: 27px 10px 10px 30px;
+    padding: 29.5px 9px 10px 28px;
 }
 .bottomCard p{
     float: left;
-    padding: 12px 22px 12px 9px;
+    padding: 13px 22px 12px 9px;
     margin: 0px;
     
     color: #9ea7b4;
@@ -342,19 +342,19 @@ ul{
 
 .bottomCard img{
     float: left;
-    padding-top: 15px;
+    padding-top: 15.5px;
 }
 .bottomCard input{
     
     float: left;
-    padding: 7.40px 26px 8px 28px;
-    margin-left: 59px;
+    padding: 7.2px 26px 8.0px 28px;
+    margin-left: 60px;
     color: white;
     border: 1px solid #16c4ec;
     border-radius: 3px;
     background-color: #16c4ec;
-    margin-top: 3px;
-    font-size: 16.4px;
+    margin-top: 4px;
+    font-size: 16.20px;
     font-family: "Signika-Regular";
     letter-spacing: 0.3px;
 }
@@ -363,7 +363,7 @@ ul{
 
 .cortix{
     padding-top: -30px;
-    height: 320px;
+    height: 322px;
     margin-top: 35.5px;
 }
 .cortix .workName{
@@ -371,31 +371,33 @@ ul{
     height: 80px;
 }
 .cortix .workName h1{
-    padding-top: 28px
+    padding-top: 29px;
 }
 .cortix .workName p{
         margin-top: 0px;
-        padding-top: 33px;
-        padding-left: 14px;
-        margin-bottom: 3px;
+        padding-top: 34px;
+        padding-left: 12px;
+        margin-bottom: 4px;
 }
 .cortix h2{
     padding-top: 2px;
 }
 
 .cortix .listSV ul{
-    margin-top: 4px;
+    margin-top: 6px;
+}
+.cortix .bottomCard {
+    padding: 24.5px 1px 10px 30px;
 }
 
-
 .cortix .bottomCard p + img{
-    margin-left: 30px;
+    margin-left: 29px;
     margin-right: 7px;
 }
 .cortix .bottomCard input{
     
     margin-left: 70.5px;
-    padding: 9px 58.5px 7px 58.0px;
+    padding: 9px 58px 7px 59px;
 }
 
 /*Далее Ademe's код*/
@@ -413,20 +415,20 @@ ul{
 .ademe .workName p{
     
     width: 460px;
-    padding: 18px 7px 1.3px;
+    padding: 17px 7px 1.3px;
 }
 .ademe .workName h2{
     
-    padding-top: 2px;
+    padding-top: 1px;
 }
 .ademe .bottomCard{
     
-    padding: 9px 10px 10px 30px;
+    padding: 8px 10px 10px 28px;
 }
 .ademe .bottomCard input{
     
-    margin-left: 54px;
-    padding: 9px 54px 7px 58px;
+    margin-left: 57px;
+    padding: 9px 52px 7px 57px;
     font-size: 16.4px;
     letter-spacing: 0.3px;
     margin-top: 1px;
@@ -437,40 +439,40 @@ ul{
 /*Далее Impec's код*/
 
 .impecToonga{
-    margin-top: 33.5px;
+    margin-top: 32.0px;
     height: 167.5px;
 }
 .impecToonga .workName h1{
     
-    padding: 28.0px 0px 0px 24.0px;
+    padding: 29.0px 0px 0px 24.0px;
     font-size: 24px;
     letter-spacing: -0.5px;
 }
 .impecToonga .workName p{
     
-    padding: 17px 9px 0px;
-    margin-bottom: 3px;
+    padding: 17px 7.5px 0px;
+    margin-bottom: 4px;
 }
 .impecToonga .workName h2{
     
-    padding: 1.5px 23px; 
+    padding: 2px 22px; 
 }
 .impecToonga .bottomCard{
     
-    padding: 6px 10px 10px 30px;
+    padding: 6px 10px 10px 29px;
 }
 .impecToonga .bottomCard img + p + img{
     
-    margin-left: 58px;
+    margin-left: 56px;
 }
 .impecToonga .bottomCard input{
-    margin-left: 37px;
-    padding: 9px 44px 7px 46px;
+    margin-left: 36px;
+    padding: 8px 45px 7px 46px;
     font-size: 16.4px;
-    letter-spacing: 0.43px;
-    margin-top: 1px;
+    margin-top: 2px;
     background: #b0bbca;
     border-color: #b0bbca;
+    letter-spacing: 0.35px;
 }
 
 /*Далее вставка TimeScale*/
@@ -513,7 +515,8 @@ ul{
     background-color: #10cdc1;
 }
 .myAchievframeParam .bottomCard{
-    padding: 8px 24px;
+    padding: 6px 24px;
+    width: 600px;
 }
 
 
@@ -525,35 +528,39 @@ ul{
 }
 .yelp .workName h1{
     
-    padding: 31px 0px 0px 22px;
+    padding: 29px 0px 0px 22px;
     letter-spacing: -1px;
 }
 .yelp .workName p{
     
-    padding: 22px 0px 0px 13px;
+    padding: 20px 0px 0px 11px;
     letter-spacing: 0.1px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 .yelp .workName h2{
-    padding: 2px 22px;
+    padding: 0px 22px;
     
     color: #00b9d8;
-    font-size: 17px;
-    letter-spacing: -0.5px;
+    font-size: 18px;
+    letter-spacing: -0.85px;
 }
 .yelp .bottomCard p{
+    padding: 15px 32px 0px 10px;
+}
+.yelp .bottomCard p:nth-child(4){
     padding: 15px 32px 0px 8px;
+    letter-spacing: -0.45px;
 }
 .yelp .bottomCard img + p + img {
     
-    margin: 2px 0px 0px 35px;
+    margin: 1px 0px 0px 34px;
 }
 .yelp .bottomCard input{
     
     margin-left: 55px;
-    padding: 7px 70px 9px 65px;
+    padding: 7px 71px 9px 67px;
     margin-top: 4px;
-    letter-spacing: -0.1px;
+    letter-spacing: -0.45px;
 }
 /*Далее QoQa's код*/
 .qoqa {
@@ -561,37 +568,46 @@ ul{
     margin-top: 32px;
 }
 .qoqa .workName h1{
-    padding: 30.5px 0px 0px 22px;
+    padding: 29.5px 0px 0px 22px;
     letter-spacing: -0.7px;
 }
 .qoqa .workName p{
-    padding: 21px 10px 0px;
+    padding: 21px 12px 0px;
     letter-spacing: 0.15px;
     margin-bottom: 6px;
+    letter-spacing: 0.120px;
 }
 .qoqa .workName h2{
-    padding: 0px 22px 0px;
+    padding: 0px 23px 0px;
     font-size: 17px;
     color: #00b9d8;
 }
+.qoqa .bottomCard img:nth-child(1){
+    padding: 17px 2px 0 1px;
+}
 .qoqa .bottomCard p{
-    padding: 16px 9px;
+    padding: 18px 7px;
+    letter-spacing: .0px;
 }
 .qoqa .bottomCard img + p + img {
-    margin: 2px 0px 0px 58px;
+    margin: 4px 0px 0px 60px;
 }
 .qoqa .bottomCard input {
     
-    padding: 7.40px 66px 9px 63px;
-    margin-left: 69px;
-    letter-spacing: -0.05px;
+    padding: 8px 70px 8px 64px;
+    margin-left: 72px;
+    letter-spacing: -0.5px;
+    margin-top: 5px;
 }
-
+.qoqa .bottomCard p:nth-child(4) {
+   
+letter-spacing: -.50px;
+}
 /*Далее hr's код*/
 
 .hr{
     
-    margin-top: 27px;
+    margin-top: 76.2px;
 }
 
 /*Далее cefire's код*/
@@ -602,35 +618,52 @@ ul{
     margin-top: 28px;
 }
 .cefire .workName h1{
-    padding: 29.0px 0px 0px 23px;
-    letter-spacing: -1.1px;
+    padding: 29.0px 0px 0px 24px;
+    letter-spacing: -1.30px;
 }
 .cefire .workName p{
-    padding: 22px 11px 0px;
+    padding: 22px 12px 0px;
     width: 340px;
+    margin-bottom: 4px;
     letter-spacing: 0.13px;
-    margin-bottom: 3px;
 }
 .cefire .workName h2{
-    padding: 2px 22px 0px;
+    padding: 0px 23px 0px;
     font-size: 18px;
-    letter-spacing: -0.91px;
+    letter-spacing: -0.92px;
 }
 .cefire .workName{
     height: 75.5px
 } 
-.cefire .bottomCard p{
-    
-    margin-top: 4px;
-}
+
 .cefire .bottomCard img + p + img{
     
-    margin: 2px 0px 0px 46px;
+    margin: 2px 0px 0px 68px;
 }
 .cefire .bottomCard p + img + p + img{
     
     margin: 1px 0px 0px 189.5px;
 }
+.cefire .bottomCard p:nth-child(2){
+    padding: 17px 0 0 10px;
+}
+.cefire .bottomCard p:nth-last-child(2){
+    padding: 17px 0 0 7px;
+    letter-spacing: -0.4px;
+}
+.stars1{
+    float: left;
+    margin-left: 207.4px;
+    margin-top: 2px;
+}
+.stars1 img{
+    margin-left: 5px
+}
+.stars1 img:nth-last-child(1){
+    margin-left: -7px;
+}
+
+
     /*Далее ecole's код*/
 .ecole {
     margin-top: 35px;
@@ -639,14 +672,15 @@ ul{
 
 .ecole .workName h1{
     
-    padding: 29.5px 0px 0px 23.5px;
-    letter-spacing: -1.165px;
+    padding: 28.5px 0px 0px 23.5px;
+    letter-spacing: -1.25px;
 }    
 
 .ecole .workName p{
     
     width: auto;
     letter-spacing: 0.06px;
+    padding: 18px 0 0 11px;
 }    
   
 .ecole .workName h2{
@@ -671,6 +705,21 @@ ul{
     margin-left: 190px;
     margin-top: 1px;
 }
+.stars2{
+    float: left;
+    margin-left: 187px;
+    margin-top: 1px;
+}
+.stars2 img{
+    margin-left: 4.5px;
+}
+.stars2 img:nth-child(2n +5){
+    transform: scale(-1, 1);
+    margin-right: -4.5px;
+}
+.stars2 img:nth-last-child(5){
+    margin-left: -7px;
+}
 
 /*Далее myHobbyAndAbilitys's код*/
 
@@ -693,7 +742,7 @@ ul{
 }
 .commonSize{
     width: 84.5px;
-    padding: 16px 0 0 18px;
+    padding: 16px 0 0 18.3px;
     float: left;
 }
 .hobby1 p{
@@ -702,27 +751,33 @@ ul{
 }
 .hobby2 p{
    
-    margin-left: 9.5px;
+    margin-left: 9.0px;
     letter-spacing: 0.4px;
+    margin-top: 4px;
 }
 .hobby3 p{
    
     margin-left: 2.4px;
     letter-spacing: 0.9px;
+    margin-top: 3px;
 }
 .hobby4 p{
    
-    margin-left: 0px;
-    letter-spacing: 0.4px;
+    margin-left: -3px;
+    letter-spacing: 0.74px;
+    margin-top: 5px;
 }
 .hobby5 p{
     
-    letter-spacing: 0.4px;
+    letter-spacing: 0.7px;
+    margin-left: -4px;
+    margin-top: 4px;
 }
 .hobby6 p{
     
-    margin-left: 1.4px;
-    letter-spacing: 0.9px;
+    margin-left: 1.0px;
+    letter-spacing: 0.7px;
+    margin-top: 4px;
 }
 
 /*Далее ability's код*/
@@ -731,7 +786,7 @@ ul{
     float: left;
     width: 627px;
     height: 270px;
-    margin-top: 20px;
+    margin-top: 17px;
 }
 
 /*Далее ProgresBars's код*/
@@ -798,12 +853,134 @@ progress::-moz-progress-bar {
     margin: 11px 16px 15px 20px;
 }
 .ability p{
-    margin: 0 0 0 0;
+    margin: 2px 0 0 2px;
     font-size: 16px;
+    width: 190px;
+    float: left;
 }
+
+/* добавление подписей к элементам progress-bar */
+.progress-value::before{
+  color: #FFFFFF;
+  display: block;
+  line-height: 16px;
+  text-align: center;
+  float: left;
+  border: 1px solid #31495A; 
+  border-radius: 5px; 
+  background: #31495A;
+  width: 35.5px;
+  height: 17px;
+  font-size: 11.1px;
+  font-family: Signika-Light; 
+  padding-left: 1px;
+}
+.photoshop .progress-value::before 
+{ 
+  content : '80%';
+  margin-left: 5px;
+  margin-top: 0.20px;
+}
+.illustrator  .progress-value::before 
+{ 
+  content : '55%';
+  margin-left: -69px;
+  margin-top: -1.0px; 
+}
+.wordpress  .progress-value::before 
+{ 
+  content : '95%';
+  margin-left: 39px;
+  margin-top: .80px; 
+}
+.prestashop  .progress-value::before 
+{ 
+  content : '85%';
+  margin-left: 14px;
+  margin-top: .10px; 
+}
+.referencementNaturel  .progress-value::before 
+{ 
+  content : '60%';
+  margin-left: -21px;
+  margin-top: .0px; 
+}
+.reseauxSociaux  .progress-value::before 
+{ 
+  content : '75%';
+  margin-left: -5px;
+  margin-top: -1.0px; 
+}
+.uiDesign  .progress-value::before 
+{ 
+  content : '55%';
+  margin-left: -54px;
+  margin-top: .80px; 
+}
+.usereXperience  .progress-value::before 
+{ 
+  content : '60%';
+  margin-left: -21px;
+  margin-top: .0px;
+}
+/* добавление стрелочек к элементам progress-bar */
+.progress-value::after 
+{
+    content: "";	
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 0.3rem solid transparent;
+    border-left: 0.3rem solid transparent;
+    border-top: 0.3rem solid #31495A;
+    
+}
+
+.photoshop .progress-value::after 
+{
+    left: 14.5rem;
+    top: 44.1%;
+}
+.illustrator .progress-value::after 
+{
+    left: 9.9rem;
+    top: 57.45%;
+}
+.wordpress .progress-value::after 
+{
+    left: 16.66rem;
+    top: 71.6%;
+}
+.prestashop .progress-value::after 
+{
+    left: 15.10rem;
+    top: 85.15%;
+}
+.referencementNaturel .progress-value::after 
+{
+    left: 32.95rem;
+    top: 44.03%;
+}
+.reseauxSociaux .progress-value::after 
+{
+    left: 33.95rem;
+    top: 57.4%;
+}
+.uiDesign .progress-value::after 
+{
+    left: 30.89rem;
+    top: 71.75%;
+}
+.usereXperience .progress-value::after 
+{
+    left: 32.99rem;
+    top: 85.15%;
+}
+
+
 /*Далее footer's код*/
 .footer{
-    margin: 39px 450px;
+    margin: 110px 450px;
     width: 650px;
     position: absolute;
 }
@@ -820,9 +997,9 @@ progress::-moz-progress-bar {
     font-family: "Lato-Italic";
     color: #34495e;
     float: left;
-    margin: 5px 19px 0 20.5px;
+    margin: 4px 19px 0 22.5px;
     font-size: 18px;
-    letter-spacing: 0.46px;
+    letter-spacing: 0.56px;
 }
 
 
@@ -839,8 +1016,8 @@ progress::-moz-progress-bar {
   .timeline::before {
     content: "";
     position: absolute;
-    width: .4rem;
-    height: 94%;
+    width: .35rem;
+    height: 100%;
     background-color: #DBE1E8;
     left: 2rem;
     top: 0;
@@ -879,11 +1056,11 @@ progress::-moz-progress-bar {
   .timeline-item::before {
     content: "";
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 19.5px;
+    height: 19.5px;
     background-color: #DEE3EF;
     border-radius: 4rem;
-    left: -3.6rem;
+    left: -3.55rem;
     top: 158%;
     transform: translateY(-50%);/*////////////////////*/
   }
@@ -893,17 +1070,22 @@ progress::-moz-progress-bar {
     }
     /* стили для псевдоэлементов ::before элементf таймлайна, расположенного в 8 контейнере */
     .timeline-wrapper:nth-child(8) .timeline-item::before {
-        top: 225.5%;
+        top: 225.4%;
     }
     /* стили для псевдоэлементов ::before элементf таймлайна, расположенного в 8 контейнере */
     .timeline-wrapper:nth-child(9) .timeline-item::before {
         top: 72.3%;
     }
+    
     /* стили для псевдоэлементов ::before элементов таймлайна, расположенных в первые 4 контейнера */  
     .timeline-wrapper:nth-child(-n+4) .timeline-item::before {
       background-color: #FFFFFF;
-      margin-left: 722.1px;
+      margin-left: 722.4px;
       top: 50%;
+    }
+    /* стили для псевдоэлементов ::before элементf таймлайна, расположенного в 8 контейнере */
+    .timeline-wrapper:nth-child(4) .timeline-item::before {
+        top: 48.1%;
     }
 /* добавление точки начала (2004) на вертикальную линию */
   .footer::after {
@@ -914,7 +1096,7 @@ progress::-moz-progress-bar {
     background-color: #DEE3EF;
     border-radius: 0.2rem;
     margin-left: 262px;
-    top: -143%;
+    top: -145%;
     transform: translateY(208%);/*////////////////////*/
     font-size: 21.3px;
     padding-left: 11px;
@@ -922,69 +1104,7 @@ progress::-moz-progress-bar {
     color: #FFFFFF;
     font-family: "Lato-Regular";
   }
-  /* добавление стрелочек к элементам таймлайна 
-  .timeline-item::after {
-    content: "";	
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 1rem solid transparent;
-    border-bottom: 1rem solid transparent;
-    border-right: 1rem solid #118c4e;
-    left: -1rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }*/
-  /* стили для блока, в котором будет отображаться название статьи 
-  .timeline-item-header {
-    display: block;
-    font-weight: bold;
-    font-size: 1.125rem;
-  }
-  /* оформление блока, содержащего название раздела 
-  .timeline-item-section {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: rgba(255,255,255,.4);
-    padding: .3rem;
-    font-size: .875rem;
-    border-top-right-radius: .25rem;
-  }
-  /* оформление блока, содержащего дату 
-  .timeline-item-date {
-    display: block;
-    font-size: .75rem;
-    line-height: 2;
-    color: rgba(255,255,255,.8);
-  }
-  /* стили для блока, в который будет выводиться описание статьи 
-  .timeline-item-description {
-    display: block;
-    font-size: .875rem;
-    color: rgba(255,255,255,.8);
-    line-height: 1.7;
-  }
-  /* стили для блока, содержащего ссылку "Перейти" 
-  .timeline-item-link {
-    display: block;
-    font-size: .875rem;
-    line-height: 1.7;
-    text-align: right;
-  }
-  /* стили для ссылки "Перейти" 
-  .timeline-item-link a {
-    text-decoration: none;
-    color: rgba(255,255,255,1);
-    border-bottom: 1px dashed rgba(255,255,255,1);
-  }
-  /* стили для ссылки "Перейти" при поднесении к ней курсора или когда она находится в состоянии фокуса 
-  .timeline-item-link a:hover, .timeline-item-link a:focus {
-    color: rgba(255,255,255,.8);
-    border-bottom: 1px dashed rgba(255,255,255,.8);
-  }
-  /* для адаптивности (стили для больших экранов) */
-  /*@media (min-width: 576px) {*/
+
 
     /* стили для первых 4 элементов с классом timeline-wrapper */
     .timeline-wrapper:nth-child(-n+4) {
@@ -995,7 +1115,7 @@ progress::-moz-progress-bar {
     }
     /* стили для первых 4 элементов с классом timeline-wrapper */
     .timeline-wrapper:nth-child(3) {
-      padding-top: 4.5px;
+      padding-top: 4px;
       padding-bottom: 3px;
     }
     /* стили для остальных элементов с классом timeline-wrapper */
@@ -1007,8 +1127,24 @@ progress::-moz-progress-bar {
     
     /* дополнительный сдвиг вверх для правой колонны */
     .timeline-wrapper:nth-child(5) {
-        margin-top: -68.6rem;
+        margin-top: -68.4rem;
+        position: absolute;
       }
-    
+.timeline-wrapper:nth-child(6) {
+        margin-top: -57.8rem;
+        position: absolute;
+      }
+.timeline-wrapper:nth-child(7) {
+        margin-top: -48.5rem;
+        position: absolute;
+      }
+.timeline-wrapper:nth-child(8) {
+        margin-top: -33rem;
+        position: absolute;
+      }
+.timeline-wrapper:nth-child(9) {
+        margin-top: -22.89rem;
+        position: absolute;
+      }
+
    
-  /* } */  
