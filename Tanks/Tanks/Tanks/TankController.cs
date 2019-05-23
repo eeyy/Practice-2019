@@ -24,7 +24,7 @@ namespace Tanks
         BulletKolView bulletView = new BulletKolView();
         
 
-        public List<Tank> CreateTank(Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateApple)//Первый танк почему-то ставится рандомно игнорируя стенки 
+        public List<Tank> CreateTank(Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateApple, Point[] arrCoordinateRiver, Point[] arrCoordinateMonolith)//Первый танк почему-то ставится рандомно игнорируя стенки 
         {
             n++;////Первый танк почему-то ставится рандомно, игнорируя стенки 
             Point coordinatesTank = Point.Empty;
@@ -47,8 +47,12 @@ namespace Tanks
                 {
                     coordinatesTank.X = random.Next(36, 684);
                     coordinatesTank.Y = random.Next(16, 560);
-                
+
                     if (checkCollisTank(coordinatesTank, arrCoordinateHurdles))
+                        continue;
+                    if (checkCollisTank(coordinatesTank, arrCoordinateMonolith))
+                        continue;
+                    if (checkCollisTank(coordinatesTank, arrCoordinateRiver))
                         continue;
                     if (checkCollisTank(coordinatesTank, arrCoordinateApple))
                         continue;
@@ -125,12 +129,15 @@ namespace Tanks
             return null;
         }
 
-        public List<Tank> GoTank(Point[] arrCoordinateHurdles)
+        public List<Tank> GoTank(Point[] arrCoordinateHurdles, Point[] arrCoordinateRiver, Point[] arrCoordinateMonolith)
         {
 
             for (int i = 0; i < tanksList.Count; i++)
             {
-                if (checkCollisionTankObstacle(tanksList[i], arrCoordinateHurdles))
+                Point sizeHurdles = new Point { X = 36, Y = 16 };
+                Point sizeMonolith = new Point { X = 36, Y = 32 };
+
+                if (checkCollisionTankObstacle(tanksList[i], arrCoordinateHurdles, sizeHurdles) & checkCollisionTankObstacle(tanksList[i], arrCoordinateRiver, sizeHurdles) & checkCollisionTankObstacle(tanksList[i], arrCoordinateMonolith, sizeMonolith))
                 {
 
                     if (tanksList[i].direction == arrDirection[0])
@@ -146,28 +153,28 @@ namespace Tanks
             return tanksList;
         }
 
-        public bool checkCollisionTankObstacle(Tank tank, Point[] arrCoordinateObstacle)
+        public bool checkCollisionTankObstacle(Tank tank, Point[] arrCoordinateObstacle, Point sizeObstacle)
         {
             for (int i = 0; i < arrCoordinateObstacle.Length; i++)
             {
                 if (tank.direction == "UP")
                 {
-                    if (collides(tank.x, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16 + tank.speed))
+                    if (collides(tank.x, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y + tank.speed))
                         return false;
                 }
                 if (tank.direction == "DOWN")
                 {
-                    if (collides(tank.x, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - tank.speed, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                    if (collides(tank.x, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - tank.speed, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
                         return false;
                 }
                 if (tank.direction == "LEFT")
                 {
-                    if (collides(tank.x - tank.speed, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                    if (collides(tank.x - tank.speed, tank.y, tank.x + tank.sizeX, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
                         return false;
                 }
                 if (tank.direction == "RIGHT")
                 {
-                    if (collides(tank.x, tank.y, tank.x + tank.sizeX + tank.speed, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                    if (collides(tank.x, tank.y, tank.x + tank.sizeX + tank.speed, tank.y + tank.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
 
                         return false;
                 }

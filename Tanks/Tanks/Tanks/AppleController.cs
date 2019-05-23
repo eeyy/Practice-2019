@@ -11,7 +11,7 @@ namespace Tanks
     {
         private int countApple = 5;
 
-        public Point[] CreateArrCoordinateApple(Point[] arrCoordinateHurdles, Kolobok kolobok)
+        public Point[] CreateArrCoordinateApple(Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateRiver, Point[] arrCoordinateMonolith)
         {
             Point[] arrCoordinateApple = new Point[countApple];
 
@@ -28,6 +28,10 @@ namespace Tanks
 
                 if (checkCollisApple(arrCoordinateApple, arrCoordinateHurdles))
                     continue;
+                if (checkCollisApple(arrCoordinateApple, arrCoordinateMonolith))
+                    continue;
+                if (checkCollisApple(arrCoordinateApple, arrCoordinateRiver))
+                    continue;
                 if (checkCollisApple(arrCoordinateApple, arrCoordinateApple))
                     continue;
                 if (checkCollisApple(arrCoordinateApple, transfCoordKolToArr(kolobok)))
@@ -37,7 +41,7 @@ namespace Tanks
             return arrCoordinateApple;
         }
 
-        public Point[] AddApple(Point[] arrCoordinateApple, Point[] arrCoordinateHurdles, Kolobok kolobok)
+        public Point[] AddApple(Point[] arrCoordinateApple, Point[] arrCoordinateHurdles, Kolobok kolobok, Point[] arrCoordinateRiver, Point[] arrCoordinateMonolith)
         {
             Point[] arrCoordinateAppleNew = new Point[countApple];
             Random random = new Random();
@@ -58,6 +62,10 @@ namespace Tanks
                     }
 
                     if (checkCollisApple(arrCoordinateAppleNew, arrCoordinateHurdles))
+                        continue;
+                    if (checkCollisApple(arrCoordinateAppleNew, arrCoordinateMonolith))
+                        continue;
+                    if (checkCollisApple(arrCoordinateAppleNew, arrCoordinateRiver))
                         continue;
                     if (checkCollisApple(arrCoordinateAppleNew, arrCoordinateAppleNew))
                         continue;

@@ -23,7 +23,10 @@ namespace Tanks
         private static int score = 0;
         private static string direction = "RIGHT";
 
-        public Point[] arrCoordinateHurdles = new Point[250];
+        public Point[] arrCoordinateHurdles = new Point[122];
+        public Point[] arrCoordinateRiver = new Point[27];
+        public Point[] arrCoordinateMonolith = new Point[78];
+
 
         public Kolobok kolobok = new Kolobok(x, y, width, height, speed, score, direction);
 
@@ -36,7 +39,10 @@ namespace Tanks
         //Движение колобка
         public void GoKolobok()
         {
-            if (checkCollisionKolHurd(arrCoordinateHurdles))
+            Point sizeHurdles = new Point { X = 36, Y = 16 };
+            Point sizeMonolith = new Point { X = 36, Y = 32 };
+
+            if (checkCollisionKolHurd(arrCoordinateHurdles, sizeHurdles) & checkCollisionKolHurd(arrCoordinateRiver, sizeHurdles) & checkCollisionKolHurd(arrCoordinateMonolith, sizeMonolith))
             {
                 if (kolobok.direction == arrDirection[0])
                     kolobok.y -= kolobok.speed;
@@ -77,47 +83,87 @@ namespace Tanks
             return coordinatesKolobok;
         }
 
-        public Point[] CreateArrCoordinateHurdles()
+        //Создание речки
+        public Point[] CreateArrCoordinateRiver()
+        {
+            int x = 468;
+            int y = 430;
+            for (int i = 0; i < 9; i++)
+            {
+                arrCoordinateRiver[i].X = x;
+                arrCoordinateRiver[i].Y = y;
+                x += 24;
+            }
+            x = 468;
+            y = 450;
+            for (int i = 9; i < 18; i++)
+            {
+                arrCoordinateRiver[i].X = x;
+                arrCoordinateRiver[i].Y = y;
+                x += 24;
+            }
+            x = 468;
+            y = 470;
+            for (int i = 18; i < 27; i++)
+            {
+                arrCoordinateRiver[i].X = x;
+                arrCoordinateRiver[i].Y = y;
+                x += 24;
+            }
+            return arrCoordinateRiver;
+        }
+
+
+        //Создание монолитных стен
+        public Point[] CreateArrCoordinateMonolith()
         {
             int y = 0;
             int x = 0;
             //Создание клетки
-            for (int i = 0; i < 37; i++)
+            for (int i = 0; i < 19; i++)
             {
-                arrCoordinateHurdles[i].X = x;
-                arrCoordinateHurdles[i].Y = y;
-                y += 16;
+                arrCoordinateMonolith[i].X = x;
+                arrCoordinateMonolith[i].Y = y;
+                y += 32;
             }
             y = 0;
-            for (int i = 37; i < 56; i++)
+            for (int i = 20; i < 39; i++)
             {
-                arrCoordinateHurdles[i].X = x;
-                arrCoordinateHurdles[i].Y = y;
+                arrCoordinateMonolith[i].X = x;
+                arrCoordinateMonolith[i].Y = y;
                 x += 36;
             }
 
             y = 0;
 
-            for (int i = 56; i < 93; i++)
+            for (int i = 40; i < 58; i++)
             {
-                arrCoordinateHurdles[i].X = x;
-                arrCoordinateHurdles[i].Y = y;
-                y += 16;
+                arrCoordinateMonolith[i].X = x;
+                arrCoordinateMonolith[i].Y = y;
+                y += 32;
             }
 
-            y -= 16;
             x = 36;
-            for (int i = 93; i < 112; i++)
+            for (int i = 59; i < 78; i++)
             {
-                arrCoordinateHurdles[i].X = x;
-                arrCoordinateHurdles[i].Y = y;
+                arrCoordinateMonolith[i].X = x;
+                arrCoordinateMonolith[i].Y = y;
                 x += 36;
             }
+            return arrCoordinateMonolith;
+        }
+
+        //Создание разрушаемых стен
+        public Point[] CreateArrCoordinateHurdles()
+        {
+            int y = 0;
+            int x = 0;
+            arrCoordinateHurdles = new Point[122];
 
             //Создание препятствий сверху
             x = 216;
             y = 16;
-            for (int i = 112; i < 120; i++)
+            for (int i = 0; i < 8; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -125,7 +171,7 @@ namespace Tanks
             }
             x = 216;
             y = 32;
-            for (int i = 120; i < 128; i++)
+            for (int i = 8; i < 16; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -133,7 +179,7 @@ namespace Tanks
             }
             x = 288;
             y = 48;
-            for (int i = 128; i < 132; i++)
+            for (int i = 16; i < 20; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -141,7 +187,7 @@ namespace Tanks
             }
             x = 288;
             y = 64;
-            for (int i = 132; i < 136; i++)
+            for (int i = 20; i < 24; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -149,7 +195,7 @@ namespace Tanks
             }
             x = 288;
             y = 80;
-            for (int i = 136; i < 140; i++)
+            for (int i = 24; i < 28; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -159,7 +205,7 @@ namespace Tanks
             //Создание препятствий слева
             x = 36;
             y = 160;
-            for (int i = 140; i < 146; i++)
+            for (int i = 28; i < 34; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -167,7 +213,7 @@ namespace Tanks
             }
             x = 36;
             y = 176;
-            for (int i = 146; i < 152; i++)
+            for (int i = 34; i < 40; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -175,7 +221,7 @@ namespace Tanks
             }
             x = 216;
             y = 176;
-            for (int i = 152; i < 158; i++)
+            for (int i = 40; i < 46; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -183,7 +229,7 @@ namespace Tanks
             }
             x = 72;
             y = 436;
-            for (int i = 158; i < 162; i++)
+            for (int i = 46; i < 50; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -191,7 +237,7 @@ namespace Tanks
             }
             x = 108;
             y = 436;
-            for (int i = 162; i < 166; i++)
+            for (int i = 50; i < 54; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -199,7 +245,7 @@ namespace Tanks
             }
             x = 144;
             y = 420;
-            for (int i = 166; i < 171; i++)
+            for (int i = 54; i < 59; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -207,7 +253,7 @@ namespace Tanks
             }
             x = 180;
             y = 420;
-            for (int i = 171; i < 176; i++)
+            for (int i = 59; i < 64; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -215,7 +261,7 @@ namespace Tanks
             }
             x = 108;
             y = 176;
-            for (int i = 176; i < 186; i++)
+            for (int i = 64; i < 74; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -225,7 +271,7 @@ namespace Tanks
             //Создание препятствий справа
             x = 360;
             y = 176;
-            for (int i = 186; i < 205; i++)
+            for (int i = 74; i < 93; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -233,7 +279,7 @@ namespace Tanks
             }
             x = 540;
             y = 176;
-            for (int i = 205; i < 215; i++)
+            for (int i = 93; i < 103; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -241,7 +287,7 @@ namespace Tanks
             }
             x = 360;
             y = 336;
-            for (int i = 215; i < 222; i++)
+            for (int i = 103; i < 110; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -249,40 +295,40 @@ namespace Tanks
             }
             x = 360;
             y = 350;
-            for (int i = 222; i < 229; i++)
+            for (int i = 110; i < 117; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
                 x += 36;
             }
-            x = 468;
-            y = 430;
-            for (int i = 229; i < 235; i++)
-            {
-                arrCoordinateHurdles[i].X = x;
-                arrCoordinateHurdles[i].Y = y;
-                x += 36;
-            }
-            x = 468;
-            y = 430;
-            for (int i = 235; i < 240; i++)
-            {
-                arrCoordinateHurdles[i].X = x;
-                arrCoordinateHurdles[i].Y = y;
-                y += 16;
-            }
-            x = 504;
-            y = 96;
-            for (int i = 240; i < 245; i++)
-            {
-                arrCoordinateHurdles[i].X = x;
-                arrCoordinateHurdles[i].Y = y;
-                x += 36;
-            }
+            //x = 468;
+            //y = 430;
+            //for (int i = 229; i < 235; i++)
+            //{
+            //    arrCoordinateHurdles[i].X = x;
+            //    arrCoordinateHurdles[i].Y = y;
+            //    x += 36;
+            //}
+            //x = 468;
+            //y = 430;
+            //for (int i = 235; i < 240; i++)
+            //{
+            //    arrCoordinateHurdles[i].X = x;
+            //    arrCoordinateHurdles[i].Y = y;
+            //    y += 16;
+            //}
+            //x = 504;
+            //y = 96;
+            //for (int i = 240; i < 245; i++)
+            //{
+            //    arrCoordinateHurdles[i].X = x;
+            //    arrCoordinateHurdles[i].Y = y;
+            //    x += 36;
+            //}
             //Добавить в левый верхний угол
             x = 36;
             y = 96;
-            for (int i = 245; i < 250; i++)
+            for (int i = 117; i < 122; i++)
             {
                 arrCoordinateHurdles[i].X = x;
                 arrCoordinateHurdles[i].Y = y;
@@ -292,29 +338,36 @@ namespace Tanks
             return arrCoordinateHurdles;
         }
         
+        public void SetArrCoordinateHurdles(Point[] points)
+        {
+            arrCoordinateHurdles = points;
+        }
+
+
+
         //Взаимодействие с препятствием
-        public bool checkCollisionKolHurd(Point[] arrCoordinateHurdles)
+        public bool checkCollisionKolHurd(Point[] arrCoordinateHurdles, Point sizeObstacle)
         {
             for (int i = 0; i < arrCoordinateHurdles.Length; i++)
             {
                 if (kolobok.direction == "UP")
                 {
-                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16 + speed))
+                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + sizeObstacle.X, arrCoordinateHurdles[i].Y + sizeObstacle.Y + speed))
                         return false;
                 }
                 if (kolobok.direction == "DOWN")
                 {
-                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y - speed, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
+                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y - speed, arrCoordinateHurdles[i].X + sizeObstacle.X, arrCoordinateHurdles[i].Y + sizeObstacle.Y))
                         return false;
                 }
                 if (kolobok.direction == "LEFT")
                 {
-                    if (collides(kolobok.x - speed, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 37, arrCoordinateHurdles[i].Y + 16))
+                    if (collides(kolobok.x - speed + 1, kolobok.y, kolobok.x + kolobok.sizeX, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + sizeObstacle.X, arrCoordinateHurdles[i].Y + sizeObstacle.Y))
                         return false;
                 }
                 if (kolobok.direction == "RIGHT")
                 {
-                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX + speed + 2, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + 36, arrCoordinateHurdles[i].Y + 16))
+                    if (collides(kolobok.x, kolobok.y, kolobok.x + kolobok.sizeX + speed + 2, kolobok.y + kolobok.sizeY, arrCoordinateHurdles[i].X, arrCoordinateHurdles[i].Y, arrCoordinateHurdles[i].X + sizeObstacle.X, arrCoordinateHurdles[i].Y + sizeObstacle.Y))
                         return false;
                 }
 
@@ -325,6 +378,8 @@ namespace Tanks
             }
             return true;
         }
+        
+
 
         //Сбор яблок
         public Point[] CheckEatKolobok(Point[] arrPointsApple)

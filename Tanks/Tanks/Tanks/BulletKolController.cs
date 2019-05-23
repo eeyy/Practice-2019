@@ -13,7 +13,9 @@ namespace Tanks
         TankController tankController = new TankController();
         BulletKolView bulletKolobokView = new BulletKolView();
         List<Bullet> bulletKolobokList = new List<Bullet>();
-        //добавить стрельбу танкам
+        //Point hurdles = new Point { };
+        int numberHurdles = 0;
+
         private string[] arrDirection =
         {
             "UP",
@@ -63,11 +65,23 @@ namespace Tanks
 
         
 
-        public PictureBox GoKolobokBullet(Point[] arrCoordinateObstacle, PictureBox pictureBox)
+        public int GoKolobokBullet(Point[] arrCoordinateObstacle, PictureBox pictureBox, Point[] arrCoordinateMonolith)
         {
             for (int i = 0; i < bulletKolobokList.Count; i++)
             {
-                if (checkCollisionBulletObstacle(bulletKolobokList[i], arrCoordinateObstacle))
+                int a = 0;
+                int b = 0;
+
+                Point sizeObstacle = new Point { X = 36, Y = 16 };
+                a = checkCollisionBulletObstacle(bulletKolobokList[i], arrCoordinateObstacle, sizeObstacle);
+
+                sizeObstacle = new Point { X = 36, Y = 32 };
+                b = checkCollisionBulletObstacle(bulletKolobokList[i], arrCoordinateMonolith, sizeObstacle);
+                    
+
+
+                //if (checkCollisionBulletObstacle(bulletKolobokList[i], arrCoordinateObstacle) & checkCollisionBulletObstacle(bulletKolobokList[i], arrCoordinateMonolith))
+                if( a + b == 0)
                 {
                     if (bulletKolobokList[i].direction == arrDirection[0])
                         bulletKolobokList[i].y -= bulletKolobokList[i].speed;
@@ -80,12 +94,46 @@ namespace Tanks
                 }
                 else
                 {
-                    pictureBox = bulletKolobokView.RemoveViewBullet(bulletKolobokList[i], pictureBox);
-                    bulletKolobokList.RemoveAt(i);
+                    if (a != 0)
+                    {
+                        //hurdles = arrCoordinateObstacle[a];
+                        numberHurdles = a;
+                    }
+
+                    return i;
+
+                    //pictureBox = bulletKolobokView.RemoveViewBullet(bulletKolobokList[i], pictureBox);
+                    //bulletKolobokList.RemoveAt(i);
+                    //if (a != 0)
+                    //{
+                    //    hurdles = arrCoordinateObstacle[a];
+                    //    pictureBox = bulletKolobokView.BangHurdles(arrCoordinateObstacle[a], pictureBox);
+
+                    //    List<Point> n = arrCoordinateObstacle.ToList();
+                    //    n.RemoveAt(a);
+                    //    arrCoordinateObstacle = n.ToArray();
+
+                    //}
+
                 }
+                
             }
-            return pictureBox;
+            return 99;
         }
+
+
+        public int GetHurdles()
+        {
+            int a = numberHurdles;
+            numberHurdles = 0;
+            return a;
+        } 
+
+
+
+
+
+
 
         public List<Bullet> GetListKolobokBullet()
         {
@@ -95,34 +143,36 @@ namespace Tanks
         
 
         //Взаимодействие с препятствием
-        public bool checkCollisionBulletObstacle(Bullet bullet, Point[] arrCoordinateObstacle)
+        public int checkCollisionBulletObstacle(Bullet bullet, Point[] arrCoordinateObstacle, Point sizeObstacle)
         {
             for (int i = 0; i < arrCoordinateObstacle.Length; i++)
             {
                 if (bullet.direction == "UP")
                 {
-                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16 + bullet.speed))
-                        return false;
+                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y + bullet.speed))
+                        return i;
                 }
                 if (bullet.direction == "DOWN")
                 {
-                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY + 5, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - bullet.speed, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
-                        return false;
+                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY + 5, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - bullet.speed, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
+                        return i;
                 }
                 if (bullet.direction == "LEFT")
                 {
-                    if (collides(bullet.x - bullet.speed, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
-                        return false;
+                    if (collides(bullet.x - bullet.speed, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
+                        return i;
                 }
                 if (bullet.direction == "RIGHT")
                 {
-                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX + bullet.speed + 2, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX + bullet.speed + 2, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
 
-                        return false;
+                        return i;
                 }
             }
-            return true;
+            return 0;
         }
+
+
 
 
         public PictureBox checkAccidentTankToBullet(List<Tank> tanksList, PictureBox pictureBox)

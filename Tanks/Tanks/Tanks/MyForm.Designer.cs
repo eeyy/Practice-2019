@@ -45,14 +45,14 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1082, 913);
+            this.pictureBox1.Size = new System.Drawing.Size(1082, 936);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // btnNewGame
             // 
             this.btnNewGame.CausesValidation = false;
-            this.btnNewGame.Location = new System.Drawing.Point(500, 952);
+            this.btnNewGame.Location = new System.Drawing.Point(500, 1033);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(107, 36);
             this.btnNewGame.TabIndex = 1;
@@ -69,7 +69,7 @@
             // lbCount
             // 
             this.lbCount.AutoSize = true;
-            this.lbCount.Location = new System.Drawing.Point(34, 952);
+            this.lbCount.Location = new System.Drawing.Point(34, 1033);
             this.lbCount.Name = "lbCount";
             this.lbCount.Size = new System.Drawing.Size(52, 20);
             this.lbCount.TabIndex = 2;
@@ -100,7 +100,7 @@
             // 
             // btnShowReport
             // 
-            this.btnShowReport.Location = new System.Drawing.Point(959, 952);
+            this.btnShowReport.Location = new System.Drawing.Point(959, 1033);
             this.btnShowReport.Name = "btnShowReport";
             this.btnShowReport.Size = new System.Drawing.Size(116, 36);
             this.btnShowReport.TabIndex = 3;
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 1009);
+            this.ClientSize = new System.Drawing.Size(1110, 1104);
             this.Controls.Add(this.btnShowReport);
             this.Controls.Add(this.lbCount);
             this.Controls.Add(this.btnNewGame);

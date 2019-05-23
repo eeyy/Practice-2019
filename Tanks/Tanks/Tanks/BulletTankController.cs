@@ -69,11 +69,14 @@ namespace Tanks
         }
 
 
-        public PictureBox GoTankBullet(Point[] arrCoordinateObstacle, PictureBox pictureBox)
+        public PictureBox GoTankBullet(Point[] arrCoordinateObstacle, PictureBox pictureBox, Point[] arrCoordinateMonolith)
         {
             for (int i = 0; i < bulletTankList.Count; i++)
             {
-                if (checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateObstacle))
+                Point sizeHurdles = new Point { X = 36, Y = 16 };
+                Point sizeMonolith = new Point { X = 36, Y = 32 };
+
+                if (checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateObstacle, sizeHurdles) & checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateMonolith, sizeMonolith))
                 {
                     if (bulletTankList[i].direction == arrDirection[0])
                         bulletTankList[i].y -= bulletTankList[i].speed;
@@ -101,28 +104,28 @@ namespace Tanks
 
 
         //Взаимодействие с препятствием
-        public bool checkCollisionBulletObstacle(Bullet bullet, Point[] arrCoordinateObstacle)
+        public bool checkCollisionBulletObstacle(Bullet bullet, Point[] arrCoordinateObstacle, Point sizeObstacle)
         {
             for (int i = 0; i < arrCoordinateObstacle.Length; i++)
             {
                 if (bullet.direction == "UP")
                 {
-                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16 + bullet.speed))
+                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y + bullet.speed))
                         return false;
                 }
                 if (bullet.direction == "DOWN")
                 {
-                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY + 4, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - bullet.speed, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY + 4, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - bullet.speed, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
                         return false;
                 }
                 if (bullet.direction == "LEFT")
                 {
-                    if (collides(bullet.x - bullet.speed, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                    if (collides(bullet.x - bullet.speed, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
                         return false;
                 }
                 if (bullet.direction == "RIGHT")
                 {
-                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX + bullet.speed + 5, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + 36, arrCoordinateObstacle[i].Y + 16))
+                    if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX + bullet.speed + 5, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
 
                         return false;
                 }

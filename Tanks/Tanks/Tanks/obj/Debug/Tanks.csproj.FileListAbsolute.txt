@@ -10,3 +10,15 @@ C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.pdb
 C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.MyForm.resources
 C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.Resource1.resources
 C:\Users\user\Desktop\Education\Tanks\Tanks\Tanks\obj\Debug\Tanks.FormReport.resources
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\bin\Debug\Tanks.exe.config
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\bin\Debug\Tanks.exe
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\bin\Debug\Tanks.pdb
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.MyForm.resources
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.Properties.Resources.resources
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.FormReport.resources
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.Resource1.resources
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.exe
+C:\Users\user\Desktop\Education\Tanks_Update\Tanks\Tanks\obj\Debug\Tanks.pdb

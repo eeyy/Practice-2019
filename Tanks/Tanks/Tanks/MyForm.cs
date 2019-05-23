@@ -29,6 +29,8 @@ namespace Tanks
         private Point coordinatesKolobok = Point.Empty;
         private Point[] arrPointsApple = { };
         private Point[] arrPointsHurdles = { };
+        private Point[] arrPointsMonolith = { };
+        private Point[] arrPointsRiver = { };
         private List<Tank> listTanks = new List<Tank>();
         private List<Bullet> listBulletKolobok = new List<Bullet>();
         private List<Bullet> listBulletTank = new List<Bullet>();
@@ -107,8 +109,6 @@ namespace Tanks
         }
 
        
-
-
         private void MyForm_KeyDown(Keys keys)
         {
             
@@ -125,16 +125,15 @@ namespace Tanks
 
 
 
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
-           
-
+            arrPointsMonolith = packmanController.CreateArrCoordinateMonolith();
             arrPointsHurdles = packmanController.CreateArrCoordinateHurdles();
-            pictureBox1.Image = foneView.CreateViewFone(arrPointsHurdles);
+            arrPointsRiver = packmanController.CreateArrCoordinateRiver();
+            pictureBox1.Image = foneView.CreateViewFone(arrPointsHurdles, arrPointsRiver, arrPointsMonolith);
 
-            arrPointsApple = appleController.CreateArrCoordinateApple(packmanController.arrCoordinateHurdles, packmanController.kolobok);
+
+            arrPointsApple = appleController.CreateArrCoordinateApple(arrPointsHurdles, packmanController.kolobok, arrPointsRiver, arrPointsMonolith);
             pictureBox1.Image = appleView.CreateViewApple(arrPointsApple, pictureBox1).Image;
             lbCount.Focus();
            
@@ -142,32 +141,59 @@ namespace Tanks
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+           
             packmanController.GoKolobok();
             coordinatesKolobok = packmanController.GetCoodinateKolobok();
 
             arrPointsApple = packmanController.CheckEatKolobok(arrPointsApple);//Возвращает новый массив после съедания
             pictureBox1.Image = appleView.RemoveViewApple(packmanController.RemoveApple(), pictureBox1).Image;//удаляет картинку яблока
-            arrPointsApple = appleController.AddApple(arrPointsApple, packmanController.arrCoordinateHurdles, packmanController.kolobok);//Добавляет новое яблоко
+            arrPointsApple = appleController.AddApple(arrPointsApple, arrPointsHurdles, packmanController.kolobok, arrPointsRiver, arrPointsMonolith);//Добавляет новое яблоко
 
             pictureBox1.Image = appleView.CreateViewApple(arrPointsApple, pictureBox1).Image;
             pictureBox1.Image = kolobokView.CreateViewKolobok(coordinatesKolobok, pictureBox1).Image;
 
             ///Танки
-            listTanks = tankController.GoTank(packmanController.arrCoordinateHurdles);
+            listTanks = tankController.GoTank(arrPointsHurdles, arrPointsRiver, arrPointsMonolith);
             pictureBox1.Image = tankView.CreateViewTank(listTanks, pictureBox1).Image;
             ///
 
-            ///Снаряды колобка
-            pictureBox1.Image = bulletKolController.GoKolobokBullet(packmanController.arrCoordinateHurdles, pictureBox1).Image;
-            listBulletKolobok = bulletKolController.GetListKolobokBullet();
-            pictureBox1.Image = bulletKolView.CreateViewBullet(listBulletKolobok, pictureBox1).Image;
+            ///Река
+            pictureBox1.Image = foneView.CreateViewObjectMap(new Bitmap(pictureBox1.Image), arrPointsRiver, Resource1.river);
             ///
             
+            ///Снаряды колобка
+            //pictureBox1.Image = bulletKolController.GoKolobokBullet(arrPointsHurdles, pictureBox1, arrPointsMonolith).Image;
+            listBulletKolobok = bulletKolController.GetListKolobokBullet();
+
+            int numberBullet = bulletKolController.GoKolobokBullet(arrPointsHurdles, pictureBox1, arrPointsMonolith);
+            if (listBulletKolobok != null & numberBullet != 99)
+            {
+                pictureBox1.Image = bulletKolView.RemoveViewBullet(listBulletKolobok[numberBullet], pictureBox1).Image;
+                listBulletKolobok.RemoveAt(numberBullet);
+            }
+
+            pictureBox1.Image = bulletKolView.CreateViewBullet(listBulletKolobok, pictureBox1).Image;//отрисовка движения снаряда
+
+
+            int numberHurdles = bulletKolController.GetHurdles();
+            if (numberHurdles != 0)
+            {//почему-то иногда удаляет два блока
+                pictureBox1.Image = bulletKolView.BangHurdles(arrPointsHurdles[numberHurdles], pictureBox1).Image;
+                List<Point> n = arrPointsHurdles.ToList();
+                n.RemoveAt(numberHurdles);
+                arrPointsHurdles = n.ToArray();
+                packmanController.SetArrCoordinateHurdles(arrPointsHurdles);
+            }
+            ///
+
             ///Снаряды танков
-            pictureBox1.Image = bulletTankController.GoTankBullet(packmanController.arrCoordinateHurdles, pictureBox1).Image;
+            pictureBox1.Image = bulletTankController.GoTankBullet(arrPointsHurdles, pictureBox1, arrPointsMonolith).Image;
             listBulletTank = bulletTankController.GetListTankBullet();
             pictureBox1.Image = bulletTankView.CreateViewBullet(listBulletTank, pictureBox1).Image;
             ///
+
+            
+
             lbCount.Text = "Count: " + packmanController.kolobok.score.ToString();//Показывает счёт игры
             GC.Collect();//сборщик мусора
             
@@ -178,7 +204,7 @@ namespace Tanks
         private void timerForTank_Tick_1(object sender, EventArgs e)
         {
             if (listTanks.Count <= 5)
-            tankController.CreateTank(packmanController.arrCoordinateHurdles, packmanController.kolobok, arrPointsApple);
+            tankController.CreateTank(arrPointsHurdles, packmanController.kolobok, arrPointsApple, arrPointsRiver, arrPointsMonolith);
         }
 
         private void timerForDirecTank_Tick(object sender, EventArgs e)
@@ -225,11 +251,12 @@ namespace Tanks
             timerForWorkProgram.Start();
 
             //фон
-            pictureBox1.Image = foneView.CreateViewFone(arrPointsHurdles);
+            arrPointsHurdles = packmanController.CreateArrCoordinateHurdles();
+            pictureBox1.Image = foneView.CreateViewFone(arrPointsHurdles, arrPointsRiver, arrPointsMonolith);
             //
 
             //колобок
-            pictureBox1.Image = kolobokView.ResetViewKolobok(coordinatesKolobok, pictureBox1).Image;
+            pictureBox1.Image = kolobokView.ResetViewKolobok(coordinatesKolobok, pictureBox1).Image; 
             packmanController.ResetKolobok();
             kolobokView.EditImageKolobok(Keys.Right);
             direction = "RIGHT";
@@ -240,7 +267,7 @@ namespace Tanks
             {
                 pictureBox1.Image = appleView.RemoveViewApple(arrPointsApple[i], pictureBox1).Image;
             }
-            arrPointsApple = appleController.CreateArrCoordinateApple(packmanController.arrCoordinateHurdles, packmanController.kolobok);
+            arrPointsApple = appleController.CreateArrCoordinateApple(arrPointsHurdles, packmanController.kolobok, arrPointsRiver, arrPointsMonolith);
             pictureBox1.Image = appleView.CreateViewApple(arrPointsApple, pictureBox1).Image;
             //
 
@@ -251,7 +278,7 @@ namespace Tanks
             }
             listTanks.RemoveRange(0, listTanks.Count);
             if (listTanks.Count <= 5)
-                tankController.CreateTank(packmanController.arrCoordinateHurdles, packmanController.kolobok, arrPointsApple);
+                tankController.CreateTank(arrPointsHurdles, packmanController.kolobok, arrPointsApple, arrPointsRiver, arrPointsMonolith);
             //
 
             //снаряды колобка и танков
