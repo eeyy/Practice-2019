@@ -13,6 +13,7 @@ namespace Tanks
         PackmanController packmanController = new PackmanController();
         BulletTankView bulletTankView = new BulletTankView();
         List<Bullet> bulletTankList = new List<Bullet>();
+        int numberHurdles = 0;
 
         private string[] arrDirection =
         {
@@ -69,14 +70,20 @@ namespace Tanks
         }
 
 
-        public PictureBox GoTankBullet(Point[] arrCoordinateObstacle, PictureBox pictureBox, Point[] arrCoordinateMonolith)
+        public int GoTankBullet(Point[] arrCoordinateObstacle, PictureBox pictureBox, Point[] arrCoordinateMonolith)
         {
             for (int i = 0; i < bulletTankList.Count; i++)
             {
                 Point sizeHurdles = new Point { X = 36, Y = 16 };
                 Point sizeMonolith = new Point { X = 36, Y = 32 };
 
-                if (checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateObstacle, sizeHurdles) & checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateMonolith, sizeMonolith))
+                int a = 0;
+                int b = 0;
+                a = checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateObstacle, sizeHurdles);
+                b = checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateMonolith, sizeMonolith);
+
+                //if (checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateObstacle, sizeHurdles) & checkCollisionBulletObstacle(bulletTankList[i], arrCoordinateMonolith, sizeMonolith))
+                if (a + b == 0)
                 {
                     if (bulletTankList[i].direction == arrDirection[0])
                         bulletTankList[i].y -= bulletTankList[i].speed;
@@ -89,13 +96,24 @@ namespace Tanks
                 }
                 else
                 {
-                    pictureBox = bulletTankView.RemoveViewBullet(bulletTankList[i], pictureBox);
-                    bulletTankList.RemoveAt(i);
+                    if (a != 0)
+                    {
+                        numberHurdles = a;
+                    }
+                    return i;
+                    //pictureBox = bulletTankView.RemoveViewBullet(bulletTankList[i], pictureBox);
+                    //bulletTankList.RemoveAt(i);
                 }
             }
-            return pictureBox;
+            return 99;
         }
 
+        public int GetHurdles()
+        {
+            int a = numberHurdles;
+            numberHurdles = 0;
+            return a;
+        }
 
         public List<Bullet> GetListTankBullet()
         {
@@ -104,33 +122,32 @@ namespace Tanks
 
 
         //Взаимодействие с препятствием
-        public bool checkCollisionBulletObstacle(Bullet bullet, Point[] arrCoordinateObstacle, Point sizeObstacle)
+        public int checkCollisionBulletObstacle(Bullet bullet, Point[] arrCoordinateObstacle, Point sizeObstacle)
         {
             for (int i = 0; i < arrCoordinateObstacle.Length; i++)
             {
                 if (bullet.direction == "UP")
                 {
                     if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y + bullet.speed))
-                        return false;
+                        return i;
                 }
                 if (bullet.direction == "DOWN")
                 {
                     if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY + 4, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y - bullet.speed, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
-                        return false;
+                        return i;
                 }
                 if (bullet.direction == "LEFT")
                 {
                     if (collides(bullet.x - bullet.speed, bullet.y, bullet.x + bullet.sizeX, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
-                        return false;
+                        return i;
                 }
                 if (bullet.direction == "RIGHT")
                 {
                     if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX + bullet.speed + 5, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
-
-                        return false;
+                        return i;
                 }
             }
-            return true;
+            return 0;
         }
 
         public bool checkAccidentBullToKolobok(Kolobok kolobok)

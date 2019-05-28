@@ -161,8 +161,8 @@ namespace Tanks
             arrCoordinateHurdles = new Point[122];
 
             //Создание препятствий сверху
-            x = 216;
-            y = 16;
+            y = 500;
+            x = 0;
             for (int i = 0; i < 8; i++)
             {
                 arrCoordinateHurdles[i].X = x;

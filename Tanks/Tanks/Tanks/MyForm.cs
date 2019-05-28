@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tanks
@@ -162,7 +157,6 @@ namespace Tanks
             ///
             
             ///Снаряды колобка
-            //pictureBox1.Image = bulletKolController.GoKolobokBullet(arrPointsHurdles, pictureBox1, arrPointsMonolith).Image;
             listBulletKolobok = bulletKolController.GetListKolobokBullet();
 
             int numberBullet = bulletKolController.GoKolobokBullet(arrPointsHurdles, pictureBox1, arrPointsMonolith);
@@ -175,24 +169,38 @@ namespace Tanks
             pictureBox1.Image = bulletKolView.CreateViewBullet(listBulletKolobok, pictureBox1).Image;//отрисовка движения снаряда
 
 
-            int numberHurdles = bulletKolController.GetHurdles();
-            if (numberHurdles != 0)
-            {//почему-то иногда удаляет два блока
-                pictureBox1.Image = bulletKolView.BangHurdles(arrPointsHurdles[numberHurdles], pictureBox1).Image;
+            int numberHurdlesCol = bulletKolController.GetHurdles();
+            if (numberHurdlesCol != 0)
+            {
+                pictureBox1.Image = bulletKolView.BangHurdles(arrPointsHurdles[numberHurdlesCol], pictureBox1).Image;
                 List<Point> n = arrPointsHurdles.ToList();
-                n.RemoveAt(numberHurdles);
+                n.RemoveAt(numberHurdlesCol);
                 arrPointsHurdles = n.ToArray();
                 packmanController.SetArrCoordinateHurdles(arrPointsHurdles);
             }
             ///
 
             ///Снаряды танков
-            pictureBox1.Image = bulletTankController.GoTankBullet(arrPointsHurdles, pictureBox1, arrPointsMonolith).Image;
-            listBulletTank = bulletTankController.GetListTankBullet();
+            int numberBulletTank = bulletTankController.GoTankBullet(arrPointsHurdles, pictureBox1, arrPointsMonolith);
+            if (listBulletTank != null & numberBulletTank != 99)
+            {
+                pictureBox1.Image = bulletTankView.RemoveViewBullet(listBulletTank[numberBulletTank], pictureBox1).Image;
+                listBulletTank.RemoveAt(numberBulletTank);
+                
+            }
+            if (listBulletTank != null)
             pictureBox1.Image = bulletTankView.CreateViewBullet(listBulletTank, pictureBox1).Image;
-            ///
-
             
+            int numberHurdlesTank = bulletTankController.GetHurdles();
+            if (numberHurdlesTank != 0)
+            {
+                pictureBox1.Image = bulletTankView.BangHurdles(arrPointsHurdles[numberHurdlesTank], pictureBox1).Image;
+                List<Point> n = arrPointsHurdles.ToList();
+                n.RemoveAt(numberHurdlesTank);
+                arrPointsHurdles = n.ToArray();
+                packmanController.SetArrCoordinateHurdles(arrPointsHurdles);
+            }
+            ///
 
             lbCount.Text = "Count: " + packmanController.kolobok.score.ToString();//Показывает счёт игры
             GC.Collect();//сборщик мусора

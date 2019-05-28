@@ -62,7 +62,7 @@ namespace Tanks
             Bitmap flag = new Bitmap(pictureBox.Image);
             Graphics flagGraphics = Graphics.FromImage(flag);
 
-            flagGraphics.DrawImage(Resource1.fone, hurdle.X, hurdle.Y, 36, 32);
+            flagGraphics.DrawImage(Resource1.fone, hurdle.X, hurdle.Y, 36, 16);
             
             pictureBox.Image = flag;
             return pictureBox;

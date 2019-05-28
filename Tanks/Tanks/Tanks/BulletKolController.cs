@@ -81,7 +81,7 @@ namespace Tanks
 
 
                 //if (checkCollisionBulletObstacle(bulletKolobokList[i], arrCoordinateObstacle) & checkCollisionBulletObstacle(bulletKolobokList[i], arrCoordinateMonolith))
-                if( a + b == 0)
+                if (a + b == 0)
                 {
                     if (bulletKolobokList[i].direction == arrDirection[0])
                         bulletKolobokList[i].y -= bulletKolobokList[i].speed;
@@ -96,27 +96,11 @@ namespace Tanks
                 {
                     if (a != 0)
                     {
-                        //hurdles = arrCoordinateObstacle[a];
                         numberHurdles = a;
                     }
 
                     return i;
-
-                    //pictureBox = bulletKolobokView.RemoveViewBullet(bulletKolobokList[i], pictureBox);
-                    //bulletKolobokList.RemoveAt(i);
-                    //if (a != 0)
-                    //{
-                    //    hurdles = arrCoordinateObstacle[a];
-                    //    pictureBox = bulletKolobokView.BangHurdles(arrCoordinateObstacle[a], pictureBox);
-
-                    //    List<Point> n = arrCoordinateObstacle.ToList();
-                    //    n.RemoveAt(a);
-                    //    arrCoordinateObstacle = n.ToArray();
-
-                    //}
-
                 }
-                
             }
             return 99;
         }
@@ -129,11 +113,7 @@ namespace Tanks
             return a;
         } 
 
-
-
-
-
-
+        
 
         public List<Bullet> GetListKolobokBullet()
         {
@@ -165,7 +145,6 @@ namespace Tanks
                 if (bullet.direction == "RIGHT")
                 {
                     if (collides(bullet.x, bullet.y, bullet.x + bullet.sizeX + bullet.speed + 2, bullet.y + bullet.sizeY, arrCoordinateObstacle[i].X, arrCoordinateObstacle[i].Y, arrCoordinateObstacle[i].X + sizeObstacle.X, arrCoordinateObstacle[i].Y + sizeObstacle.Y))
-
                         return i;
                 }
             }

@@ -56,5 +56,16 @@ namespace Tanks
             MyPictureBox.Image = flag;
             return MyPictureBox;
         }
+
+        public PictureBox BangHurdles(Point hurdle, PictureBox pictureBox)
+        {
+            Bitmap flag = new Bitmap(pictureBox.Image);
+            Graphics flagGraphics = Graphics.FromImage(flag);
+
+            flagGraphics.DrawImage(Resource1.fone, hurdle.X, hurdle.Y, 36, 16);
+
+            pictureBox.Image = flag;
+            return pictureBox;
+        }
     }
 }
