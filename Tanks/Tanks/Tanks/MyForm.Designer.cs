@@ -38,6 +38,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerForBullet = new System.Windows.Forms.Timer(this.components);
             this.btnShowReport = new System.Windows.Forms.Button();
+            this.btnhelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,9 +53,10 @@
             // btnNewGame
             // 
             this.btnNewGame.CausesValidation = false;
-            this.btnNewGame.Location = new System.Drawing.Point(500, 1033);
+            this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewGame.Location = new System.Drawing.Point(451, 984);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(107, 36);
+            this.btnNewGame.Size = new System.Drawing.Size(231, 81);
             this.btnNewGame.TabIndex = 1;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = true;
@@ -69,9 +71,10 @@
             // lbCount
             // 
             this.lbCount.AutoSize = true;
-            this.lbCount.Location = new System.Drawing.Point(34, 1033);
+            this.lbCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCount.Location = new System.Drawing.Point(913, 1012);
             this.lbCount.Name = "lbCount";
-            this.lbCount.Size = new System.Drawing.Size(52, 20);
+            this.lbCount.Size = new System.Drawing.Size(76, 29);
             this.lbCount.TabIndex = 2;
             this.lbCount.Text = "Count";
             // 
@@ -100,24 +103,38 @@
             // 
             // btnShowReport
             // 
-            this.btnShowReport.Location = new System.Drawing.Point(959, 1033);
+            this.btnShowReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowReport.Location = new System.Drawing.Point(38, 989);
             this.btnShowReport.Name = "btnShowReport";
-            this.btnShowReport.Size = new System.Drawing.Size(116, 36);
+            this.btnShowReport.Size = new System.Drawing.Size(128, 76);
             this.btnShowReport.TabIndex = 3;
             this.btnShowReport.Text = "Show report";
             this.btnShowReport.UseVisualStyleBackColor = true;
             this.btnShowReport.Click += new System.EventHandler(this.btnShowReport_Click);
             // 
+            // btnhelp
+            // 
+            this.btnhelp.Location = new System.Drawing.Point(1137, 938);
+            this.btnhelp.Name = "btnhelp";
+            this.btnhelp.Size = new System.Drawing.Size(10, 10);
+            this.btnhelp.TabIndex = 1;
+            this.btnhelp.Text = "btnhelp";
+            this.btnhelp.UseVisualStyleBackColor = true;
+            // 
             // MyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 1104);
+            this.ClientSize = new System.Drawing.Size(1110, 1092);
+            this.Controls.Add(this.btnhelp);
             this.Controls.Add(this.btnShowReport);
             this.Controls.Add(this.lbCount);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.pictureBox1);
+            this.MaximumSize = new System.Drawing.Size(1132, 1148);
+            this.MinimumSize = new System.Drawing.Size(1132, 1148);
             this.Name = "MyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -137,6 +154,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerForBullet;
         private System.Windows.Forms.Button btnShowReport;
+        private System.Windows.Forms.Button btnhelp;
     }
 }
 

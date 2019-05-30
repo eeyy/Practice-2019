@@ -46,12 +46,13 @@ namespace Tanks
         public MyForm()
         {
             InitializeComponent();
-            btnNewGame.PreviewKeyDown += new PreviewKeyDownEventHandler(btnNewGame_PreviewKeyDown);
-            btnNewGame.KeyDown += new KeyEventHandler(btnNewGame_KeyDown);
+            btnhelp.PreviewKeyDown += new PreviewKeyDownEventHandler(btnhelp_PreviewKeyDown);
+            btnhelp.KeyDown += new KeyEventHandler(btnhelp_KeyDown);
             formReport = new FormReport();
+            
         }
-
-        private void btnNewGame_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        
+        private void btnhelp_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -59,13 +60,13 @@ namespace Tanks
                 case Keys.Up:
                 case Keys.Right:
                 case Keys.Left:
-                case Keys.NumPad0:
+                case Keys.Space:
                     e.IsInputKey = true;
                     break;
             }
         }
 
-        void btnNewGame_KeyDown(object sender, KeyEventArgs e)
+        void btnhelp_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -97,7 +98,7 @@ namespace Tanks
                         MyForm_KeyDown(e.KeyCode);
                     }
                     break;
-                case Keys.NumPad0:
+                case Keys.Space:
                     MyForm_KeyDown(e.KeyCode);
                     break;
             }
@@ -107,7 +108,7 @@ namespace Tanks
         private void MyForm_KeyDown(Keys keys)
         {
             
-            if (keys == Keys.NumPad0 & count == 1)
+            if (keys == Keys.Space & count == 1)
             {
                 bulletKolController.CreateKolobokBullet(packmanController.kolobok);
                 count *= -1;
@@ -257,12 +258,7 @@ namespace Tanks
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             timerForWorkProgram.Start();
-
-            //фон
-            arrPointsHurdles = packmanController.CreateArrCoordinateHurdles();
-            pictureBox1.Image = foneView.CreateViewFone(arrPointsHurdles, arrPointsRiver, arrPointsMonolith);
-            //
-
+            
             //колобок
             pictureBox1.Image = kolobokView.ResetViewKolobok(coordinatesKolobok, pictureBox1).Image; 
             packmanController.ResetKolobok();
@@ -296,18 +292,27 @@ namespace Tanks
             }
             listBulletKolobok.RemoveRange(0, listBulletKolobok.Count);
 
-            for (int i = 0; i < listBulletTank.Count; i++)
+            if (listBulletTank != null)
             {
-                pictureBox1.Image = bulletTankView.RemoveViewBullet(listBulletTank[i], pictureBox1).Image;
+                for (int i = 0; i < listBulletTank.Count; i++)
+                {
+                    pictureBox1.Image = bulletTankView.RemoveViewBullet(listBulletTank[i], pictureBox1).Image;
+                }
+                listBulletTank.RemoveRange(0, listBulletTank.Count);
             }
-            listBulletTank.RemoveRange(0, listBulletTank.Count);
+            //
+
+            //фон
+            arrPointsHurdles = packmanController.CreateArrCoordinateHurdles();
+            pictureBox1.Image = foneView.CreateViewFone(arrPointsHurdles, arrPointsRiver, arrPointsMonolith);
             //
         }
 
         private void btnShowReport_Click(object sender, EventArgs e)
         {
-            
             formReport.Show();
         }
+
+   
     }
 }
